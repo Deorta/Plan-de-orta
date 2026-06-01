@@ -38,11 +38,16 @@
   .header-sub { font-size: 11px; color: var(--muted); font-family: 'Space Mono', monospace; }
 
   .tabs { display: flex; background: var(--card); border-bottom: 1px solid var(--border); overflow-x: auto; position: sticky; top: 77px; z-index: 99; }
-  .tab { flex: none; padding: 12px 16px; font-size: 12px; font-weight: 600; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; }
+  .tab { flex: none; padding: 12px 16px; font-size: 12px; font-weight: 600; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.3s ease; }
   .tab.active { color: var(--gold); border-bottom-color: var(--gold); }
 
   .content { display: none; padding: 16px; padding-bottom: 100px; }
-  .content.active { display: block; }
+  .content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
   .card-title { font-family: 'Bebas Neue', cursive; font-size: 16px; color: var(--gold); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
@@ -50,26 +55,67 @@
   .weekend-alert { background: rgba(239, 68, 68, 0.1); border: 1px solid var(--red); color: #fca5a5; font-size: 11px; padding: 10px; border-radius: 8px; margin-bottom: 12px; text-align: center; line-height: 1.4; }
 
   .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-  .stat-box { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
+  .stat-box { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; transition: transform 0.2s ease; }
+  .stat-box:active { transform: scale(0.95); }
   .stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; }
   .stat-value { font-family: 'Space Mono', monospace; font-size: 18px; font-weight: 700; color: var(--gold); }
 
-  .todo-item { display: flex; align-items: center; gap: 12px; padding: 10px; background: var(--card2); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 6px; cursor: pointer; }
-  .todo-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--gold); }
+  /* ESTILOS DE CASILLAS ANIMADAS */
+  .todo-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    padding: 11px; 
+    background: var(--card2); 
+    border: 1px solid var(--border); 
+    border-radius: 8px; 
+    margin-bottom: 6px; 
+    cursor: pointer; 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .todo-item:active { transform: scale(0.98); }
+  
+  .todo-item input[type="checkbox"] { 
+    width: 18px; 
+    height: 18px; 
+    accent-color: var(--gold); 
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .todo-item input[type="checkbox"]:checked { transform: scale(1.1); }
+  
   .todo-time { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--gold); background: rgba(240, 165, 0, 0.1); padding: 2px 6px; border-radius: 4px; }
-  .todo-text { font-size: 12px; flex: 1; }
-  .todo-item.done .todo-text { color: var(--muted); text-decoration: line-through; }
+  .todo-text { font-size: 12px; flex: 1; transition: color 0.3s ease, transform 0.3s ease; }
+  
+  .todo-item.done { border-color: rgba(240, 165, 0, 0.2); background: rgba(17, 17, 24, 0.5); }
+  .todo-item.done .todo-text { color: var(--muted); text-decoration: line-through; transform: translateX(4px); }
 
-  .meal-card { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
-  .meal-header { padding: 12px; cursor: pointer; display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; }
-  .meal-body { display: none; padding: 12px; border-top: 1px solid var(--border); font-size: 12px; color: #d1d1e0; line-height: 1.5; }
+  /* DESPLIEGUE ELÁSTICO */
+  .meal-card { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; overflow: hidden; transition: border-color 0.3s ease; }
+  .meal-header { padding: 12px; cursor: pointer; display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; user-select: none; }
+  .meal-header span:last-child { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .meal-header.open-style span:last-child { transform: rotate(180deg); color: var(--gold); }
+  
+  .meal-body { display: none; padding: 12px; border-top: 1px solid var(--border); font-size: 12px; color: #d1d1e0; line-height: 1.5; animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
   .meal-body.open { display: block; }
+
+  @keyframes slideDown {
+    from { opacity: 0; max-height: 0; transform: translateY(-4px); }
+    to { opacity: 1; max-height: 600px; transform: translateY(0); }
+  }
+
+  /* SUB-CHECKLISTS (DIETA, ENTRENOS, SUPLEMENTOS) */
+  .exercise-list { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+  .ex-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: var(--card); border-radius: 6px; font-size: 11.5px; border-left: 3px solid var(--muted); transition: all 0.2s ease; cursor: pointer; }
+  .ex-item.checked { border-left-color: var(--gold); background: rgba(240, 165, 0, 0.03); color: var(--muted); text-decoration: line-through; }
+  .ex-item input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--gold); }
 
   .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px; }
   .gallery-item { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 5px; text-align: center; }
   .gallery-item img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; }
 
-  .btn-action { background: var(--gold); color: black; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-family: 'Bebas Neue'; letter-spacing: 1px; cursor: pointer; margin-bottom: 10px; }
+  .btn-action { background: var(--gold); color: black; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-family: 'Bebas Neue'; letter-spacing: 1px; cursor: pointer; margin-bottom: 10px; transition: all 0.2s ease; }
+  .btn-action:active { transform: scale(0.97); background: var(--gold2); }
 </style>
 </head>
 <body>
@@ -84,7 +130,8 @@
 
 <div class="tabs">
   <div class="tab active" onclick="showTab('home', this)">Inicio</div>
-  <div class="tab" onclick="showTab('diet', this)">Dieta (2400 Kcal)</div>
+  <div class="tab" onclick="showTab('diet', this)">Dieta</div>
+  <div class="tab" onclick="showTab('supps', this)">Suplementos</div>
   <div class="tab" onclick="showTab('training', this)">Entreno</div>
   <div class="tab" onclick="showTab('progress', this)">Progreso 📸</div>
 </div>
@@ -120,17 +167,17 @@
       <div class="todo-item" onclick="toggleCheck('c2')">
         <span class="todo-time">05:00 AM</span>
         <input type="checkbox" id="c2" onclick="event.stopPropagation()">
-        <span class="todo-text">☕ Salida al trabajo + Colágeno Hidrolizado 15g + Té Manzanilla</span>
+        <span class="todo-text">☕ Salida al trabajo + Bloque de Mañana</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c3')">
         <span class="todo-time">10:00 AM</span>
         <input type="checkbox" id="c3" onclick="event.stopPropagation()">
-        <span class="todo-text">🍳 Comida 1 (Desayuno) + Stack de Suplementos Mañana</span>
+        <span class="todo-text">🍳 Comida 1 (Desayuno) + Suplementación Base</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c4')">
         <span class="todo-time">04:00 PM</span>
         <input type="checkbox" id="c4" onclick="event.stopPropagation()">
-        <span class="todo-text">🍗 Comida Principal (Pre-Gym) + Lipo 6 Black (1 cap)</span>
+        <span class="todo-text">🍗 Comida Principal (Pre-Gym) + Lipo 6</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c5')">
         <span class="todo-time">07:00 PM</span>
@@ -140,102 +187,201 @@
       <div class="todo-item" onclick="toggleCheck('c6')">
         <span class="todo-time">09:00 PM</span>
         <input type="checkbox" id="c6" onclick="event.stopPropagation()">
-        <span class="todo-text">🥛 Batido ISO-100 (1 scoop al salir) + Cena Post-Entreno en casa</span>
+        <span class="todo-text">🥛 Batido ISO-100 + Cena Post-Entreno en casa</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c7')">
         <span class="todo-time">10:30 PM</span>
         <input type="checkbox" id="c7" onclick="event.stopPropagation()">
-        <span class="todo-text">🌙 ZMA + Ashwagandha 500mg + L-Theanine + Dormir</span>
+        <span class="todo-text">🌙 Stack Nocturno + Descanso Profundo</span>
       </div>
     </div>
     <button class="btn-action" style="background:var(--border); color:var(--gold); margin-top:10px; font-size:11px; padding:6px;" onclick="resetChecklist()">🔄 Reiniciar Día</button>
   </div>
 </div>
 
-<!-- VISTA DIETA EXACTA FASE 1 -->
+<!-- VISTA DIETA DESGLOSADA CON CASILLAS -->
 <div class="content" id="diet">
   <div class="card">
-    <div class="card-title">🍎 Menú Diario Estricto - 2,400 Kcal</div>
+    <div class="card-title">🍎 Bloques Nutricionales - FASE 1 (2400 Kcal)</div>
     
+    <div class="weekend-alert" style="background:rgba(59,130,246,0.1); border-color:var(--blue); color:#93c5fd;">
+      💡 Pesa tus porciones de alimentos en seco / crudo para mantener el déficit exacto.
+    </div>
+
     <div class="meal-card">
       <div class="meal-header" onclick="toggleMeal(this)"><span>🍳 10:00 AM — Comida 1 (Desayuno) | ~620 kcal</span><span>▼</span></div>
       <div class="meal-body">
-        • 3 huevos enteros + 4 claras (cocinados con ½ cdta de aceite de coco).<br>
-        • 70g de avena en copos preparada con agua.<br>
-        • 1 plátano mediano.<br>
-        • Café negro sin azúcar.<br>
-        • <strong>Suplementos:</strong> Lipo 6 (1 cap) + Vitamina D3 + CoQ10 + Vitamina C + Omega-3 (1 cap).
+        <div class="exercise-list">
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🥚 3 Huevos enteros</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🥣 4 Claras de huevo</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🥥 ½ cdta de Aceite de Coco (para cocinar)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🌾 70g de Avena en copos (con agua)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🍌 1 Plátano mediano</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>☕ Café negro sin azúcar</span></label>
+        </div>
       </div>
     </div>
 
     <div class="meal-card">
       <div class="meal-header" onclick="toggleMeal(this)"><span>🍗 04:00 PM — Comida Principal (Pre-Gym) | ~780 kcal</span><span>▼</span></div>
       <div class="meal-body">
-        • 250g de pechuga de pollo a la plancha.<br>
-        • 300g de papa blanca cocida (tu combustible principal de entrenamiento).<br>
-        • Verduras libres al vapor o crudas.<br>
-        • 1 cdta de aceite de oliva.<br>
-        • <strong>Suplementos:</strong> Lipo 6 Black (1 cap).
+        <div class="exercise-list">
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🐔 250g de Pechuga de pollo a la plancha</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🥔 300g de Papa blanca cocida</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🥦 Verduras libres al vapor o crudas</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🫒 1 cdta de Aceite de Oliva</span></label>
+        </div>
       </div>
     </div>
 
     <div class="meal-card">
       <div class="meal-header" onclick="toggleMeal(this)"><span>🥛 09:00 PM — Cena Post-Entreno | ~620 kcal</span><span>▼</span></div>
       <div class="meal-body">
-        • <strong>Inmediato al salir:</strong> 1 scoop de ISO-100 Dymatize con agua fría.<br>
-        • <strong>En casa:</strong> 150g de pollo al horno (o 5 claras + 2 huevos enteros).<br>
-        • 200g de papa blanca hervida o al vapor.<br>
-        • Ensalada grande libre (lechuga, tomate, pepino).<br>
-        • ½ aguacate o 1 cdta de aceite de oliva.<br>
-        • <strong>Suplementos:</strong> Omega-3 (1 cap) + Infusión de manzanilla.
+        <div class="exercise-list">
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🥤 1 Scoop de ISO-100 Dymatize (inmediato al salir)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🍗 150g de Pollo al horno (o 5 claras + 2 huevos)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🥔 200g de Papa blanca hervida o al vapor</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🥗 Ensalada grande libre (lechuga, tomate, pepino)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🥑 ½ Aguacate o 1 cdta de Aceite de Oliva</span></label>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- VISTA ENTRENAMIENTO FASE 1 -->
-<div class="content" id="training">
+<!-- VISTA SUPLEMENTACIÓN EXCLUSIVA -->
+<div class="content" id="supps">
   <div class="card">
-    <div class="card-title">🏋️ Rutina Semanal Hipertrofia (7:00 PM)</div>
+    <div class="card-title">💊 Stack Completo de Suplementos y Horarios</div>
     
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>💥 Lunes — Pecho + Tríceps</span><span>▼</span></div>
-      <div class="meal-body">• Series y Repeticiones: 4 x 10-12.<br>
-• 🏃 <strong>Cardio Post-Gym:</strong> 20 min de caminata rápida.</div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🌅 Bloque de Mañana (04:00 AM - 05:00 AM)</span><span>▼</span></div>
+      <div class="meal-body">
+        <div class="exercise-list">
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🧂 500ml de Agua + pizca de sal (4:00 AM en ayunas)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>✨ 15g de Colágeno Hidrolizado (Quotidien)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🍵 1 taza de Té de Manzanilla (5:00 AM)</span></label>
+        </div>
+      </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🌪️ Martes — Espalda + Bíceps</span><span>▼</span></div>
-      <div class="meal-body">• Series y Repeticiones: 4 x 10-12.<br>
-• 🏃 <strong>Cardio Post-Gym:</strong> 20 min de caminata rápida.</div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🍳 Con el Desayuno (10:00 AM)</span><span>▼</span></div>
+      <div class="meal-body">
+        <div class="exercise-list">
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🔥 Lipo 6 Black (1 cápsula)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>☀️ Vitamina D3 (5,000 UI)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🛡️ CoQ10 (Coenzima Q10)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🍊 Vitamina C</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🐟 Omega-3 (1 cápsula)</span></label>
+        </div>
+      </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🍗 Miércoles — Piernas Completas</span><span>▼</span></div>
-      <div class="meal-body">• Series y Repeticiones: 4 x 12-15.<br>
-• 🚴 <strong>Cardio Post-Gym:</strong> 15 min de bicicleta.</div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>⚡ Bloque de Entrenamiento (04:00 PM - 09:00 PM)</span><span>▼</span></div>
+      <div class="meal-body">
+        <div class="exercise-list">
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🔥 Lipo 6 Black (1 cápsula con comida de 4:00 PM)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🧬 Creatina Monohidratada (5g en agua a las 7:00 PM)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🥤 1 Scoop de ISO-100 Dymatize (al salir del gym, 9:00 PM)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🐟 Omega-3 (1 cápsula con la cena en casa)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🍵 Infusión de Manzanilla (post-cena)</span></label>
+        </div>
+      </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🛡️ Jueves — Hombros + Trapecios</span><span>▼</span></div>
-      <div class="meal-body">• Series y Repeticiones: 4 x 10-12.<br>
-• 🏃 <strong>Cardio Post-Gym:</strong> 20 min de caminata rápida.</div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🌙 Bloque Nocturno (10:30 PM - Antes de Dormir)</span><span>▼</span></div>
+      <div class="meal-body">
+        <div class="exercise-list">
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>💤 ZMA Platinum (30 min antes de dormir, estómago vacío)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🌿 Ashwagandha 500mg (Zen Natura)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🧠 L-Theanine</span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VISTA ENTRENAMIENTO DESGLOSADO CON CASILLAS -->
+<div class="content" id="training">
+  <div class="card">
+    <div class="card-title">🏋️ Rutina Desglosada con Checklists (7:00 PM)</div>
+    
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>💥 Lunes — Pecho + Trícep ($4 \times 10-12$)</span><span>▼</span></div>
+      <div class="meal-body">
+        <div class="exercise-list">
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>常规 Press de banca inclinado (Barra o Mancuerna)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>常规 Press plano en máquina o Fondos</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>💪 Press Francés con barra Z</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>💪 Extensiones de tríceps en polea alta</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🏃 20 min caminata rápida (Cardio Post-Gym)</span></label>
+        </div>
+      </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🦾 Viernes — Full Body + Core</span><span>▼</span></div>
-      <div class="meal-body">• Series y Repeticiones: 3 x 15.<br>
-• 🏃 <strong>Cardio Post-Gym:</strong> 25 min de cardio moderado.</div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🌪️ Martes — Espalda + Bícep ($4 \times 10-12$)</span><span>▼</span></div>
+      <div class="meal-body">
+        <div class="exercise-list">
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>常规 Jalón al pecho con agarre prono</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>常规 Remo con barra libre (Estricto)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>📐 Face pulls en polea (Deltoide posterior)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>💪 Curl de bíceps con barra recta o Z</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>💪 Curl de bíceps alterno tipo martillo</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🏃 20 min caminata rápida (Cardio Post-Gym)</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>">🍗 Miércoles — Piernas Completas ($4 \times 12-15$)</span><span>▼</span></div>
+      <div class="meal-body">
+        <div class="exercise-list">
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>常规 Sentadilla libre profunda o Prensa inclinada</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>常规 Extensiones de cuádriceps en máquina</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>常规 Curl femoral acostado o Peso muerto rumano</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🦶 Elevación de talones de pie (Pantorrilla)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🚴 15 min bicicleta (Cardio Post-Gym)</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🛡️ Jueves — Hombros + Trapecios ($4 \times 10-12$)</span><span>▼</span></div>
+      <div class="meal-body">
+        <div class="exercise-list">
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>常规 Press militar con mancuernas</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>📐 Elevaciones laterales para hombro</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>常规 Encogimientos para trapecio</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🏃 20 min caminata rápida (Cardio Post-Gym)</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🦾 Viernes — Full Body + Core ($3 \times 15$)</span><span>▼</span></div>
+      <div class="meal-body">
+        <div class="exercise-list">
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>⚡ Circuito Full Body Estilo Fase 1 (Serie 1)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>⚡ Circuito Full Body Estilo Fase 1 (Serie 2)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>⚡ Circuito Full Body Estilo Fase 1 (Serie 3)</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🔥 Trabajo enfocado de Core / Abdomen</span></label>
+          <label class="ex-item"><input type="checkbox" onclick="toggleExercise(this)"> <span>🏃 25 min cardio moderado (Cardio Post-Gym)</span></label>
+        </div>
+      </div>
     </div>
 
     <div class="meal-card">
       <div class="meal-header" onclick="toggleMeal(this)"><span>🏃 Sábado — Descanso Activo</span><span>▼</span></div>
-      <div class="meal-body">• ⚠️ <strong>Solo Cardio:</strong> 4:00 AM en ayunas (30 min caminata inclinada). No entrenas pesas.</div>
+      <div class="meal-body">• ⚠️ <strong>Solo Cardio:</strong> 4:00 AM en ayunas (30 min caminata inclinada). No se tocan las pesas hoy.</div>
     </div>
 
     <div class="meal-card">
       <div class="meal-header" onclick="toggleMeal(this)"><span>🛌 Domingo — Descanso Total</span><span>▼</span></div>
-      <div class="meal-body">• Cero entrenamiento. Dedica el día a preparar tus tuppers de la semana para blindar tu adherencia.</div>
+      <div class="meal-body">• Cero entrenamiento. Aprovecha el día para dejar listos todos tus tuppers de la semana entrante.</div>
     </div>
   </div>
 </div>
@@ -265,7 +411,7 @@
   </div>
 </div>
 
-<!-- CREDENCIALES DE TU PROYECTO -->
+<!-- SCRIPT DE FIREBASE COMPAT -->
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
@@ -290,7 +436,18 @@
     el.classList.add('active');
   }
 
-  function toggleMeal(header) { header.nextElementSibling.classList.toggle('open'); }
+  function toggleMeal(header) { 
+    header.classList.toggle('open-style');
+    header.nextElementSibling.classList.toggle('open'); 
+  }
+
+  function toggleExercise(checkbox) {
+    if(checkbox.checked) {
+      checkbox.parentElement.classList.add('checked');
+    } else {
+      checkbox.parentElement.classList.remove('checked');
+    }
+  }
 
   let editing = null;
   function editStat(type) {
@@ -312,7 +469,7 @@
     }).catch(() => {
       db.collection("seguimiento").doc("cristian").set({ peso: p, grasa: g, fecha: new Date().toLocaleString() });
     }).then(() => {
-      document.getElementById('status').innerText = "✅ Sincronizado en la Nube";
+      document.getElementById('status').innerText = "Base de Datos Actualizada ✅";
     });
   }
 
@@ -326,9 +483,9 @@
   }
 
   function resetChecklist() {
-    if(confirm("¿Quieres reiniciar el checklist de hoy?")) {
+    if(confirm("¿Quieres reiniciar el control diario?")) {
       const resetData = { c1:false, c2:false, c3:false, c4:false, c5:false, c6:false, c7:false };
-      db.collection("checklist").doc("diario").set(resetData).then(() => { alert("¡A darle duro al día! 🦾"); });
+      db.collection("checklist").doc("diario").set(resetData).then(() => { alert("¡Lista limpia! A romperla hoy. 🦾"); });
     }
   }
 
