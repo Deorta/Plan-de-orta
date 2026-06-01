@@ -132,8 +132,8 @@
   }
 
   .meal-card { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
-  .meal-header { padding: 12px; cursor: pointer; display: flex; justify-content: space-between; }
-  .meal-body { display: none; padding: 12px; border-top: 1px solid var(--border); font-size: 12px; }
+  .meal-header { padding: 12px; cursor: pointer; display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; }
+  .meal-body { display: none; padding: 12px; border-top: 1px solid var(--border); font-size: 12px; color: #d1d1e0; line-height: 1.5; }
   .meal-body.open { display: block; }
 </style>
 </head>
@@ -179,7 +179,7 @@
       </div>
       <div class="todo-item" onclick="toggleCheck('c2')">
         <input type="checkbox" id="c2" onclick="event.stopPropagation()">
-        <span class="todo-text">💊 Suplementos Mañana (Lipo6, D3, CoQ10, Vit C, Omega3)</span>
+        <span class="todo-text">💊 Suplementos Mañana (Lipo 6, Omega 3, CoQ10, Vit C, D3)</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c3')">
         <input type="checkbox" id="c3" onclick="event.stopPropagation()">
@@ -187,7 +187,7 @@
       </div>
       <div class="todo-item" onclick="toggleCheck('c4')">
         <input type="checkbox" id="c4" onclick="event.stopPropagation()">
-        <span class="todo-text">💊 Suplemento Tarde (Lipo6 Black - 4:00 PM)</span>
+        <span class="todo-text">💊 Suplemento Tarde (Lipo 6 Black - 4:00 PM)</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c5')">
         <input type="checkbox" id="c5" onclick="event.stopPropagation()">
@@ -195,40 +195,128 @@
       </div>
       <div class="todo-item" onclick="toggleCheck('c6')">
         <input type="checkbox" id="c6" onclick="event.stopPropagation()">
-        <span class="todo-text">💪 Creatina 5g + Entrenamiento (7:00 PM)</span>
+        <span class="todo-text">💪 Creatina 5g + Entrenamiento de Hipertrofia (7:00 PM)</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c7')">
         <input type="checkbox" id="c7" onclick="event.stopPropagation()">
-        <span class="todo-text">🥛 Batido ISO-100 + Cena Post-Entreno</span>
+        <span class="todo-text">🥛 Batido ISO / Proteína Hidrolizada + Cena Post-Entreno</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c8')">
         <input type="checkbox" id="c8" onclick="event.stopPropagation()">
-        <span class="todo-text">🌙 Suplementos Noche (ZMA, Ashwagandha, L-Theanine)</span>
+        <span class="todo-text">🌙 Suplementos Noche (ZMA, Ashwagandha)</span>
       </div>
     </div>
     <button class="btn-action" style="background:var(--border); color:var(--gold); margin-top:10px; font-size:11px; padding:6px;" onclick="resetChecklist()">🔄 Reiniciar Checklist Diario</button>
   </div>
 </div>
 
-<!-- VISTA DIETA -->
+<!-- VISTA DIETA TOTALMENTE COMPLETA -->
 <div class="content" id="diet">
   <div class="card">
-    <div class="card-title">🍎 Plan Nutricional</div>
+    <div class="card-title">🍎 Plan Nutricional de Volumen Limpio</div>
+    
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>10:00 AM - Desayuno</span><span>▼</span></div>
-      <div class="meal-body">3 huevos enteros, 4 claras, 70g avena, 1 plátano.</div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🍳 10:00 AM — Comida 1 (Desayuno)</span><span>▼</span></div>
+      <div class="meal-body">
+        • 3 huevos enteros + 4 claras de huevo.<br>
+        • 70g de avena pesada en seco.<br>
+        • 1 plátano mediano.<br>
+        • <strong>Suplementación:</strong> Lipo 6, Omega 3, CoQ10, Vitamina C y D3.
+      </div>
     </div>
+
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🍗 4:00 PM — Comida 2 (Pre-Entrenamiento)</span><span>▼</span></div>
+      <div class="meal-body">
+        • 200g de pechuga de pollo desmenuzada o filete de res magro.<br>
+        • 150g de arroz blanco cocido.<br>
+        • Ensalada verde ligera o vegetales al vapor.<br>
+        • <strong>Suplementación:</strong> Segunda dosis de Lipo 6 Black (Termogénico).
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>💪 6:30 PM — Período Intra-Gym</span><span>▼</span></div>
+      <div class="meal-body">
+        • 5g de Creatina Monohidratada tomados justo antes o durante la sesión para saturación muscular.<br>
+        • Hidratación constante durante el entrenamiento intensivo con cargas pesadas.
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🥛 9:00 PM — Comida 3 (Post-Entrenamiento / Cena)</span><span>▼</span></div>
+      <div class="meal-body">
+        • 1 scoop de Proteína Aislada / Hidrolizada (ISO-100 o similar) disuelta en agua.<br>
+        • 200g de carne magra o pescado blanco.<br>
+        • 120g de camote cocido o arroz blanco para reposición de glucógeno muscular.
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🌙 10:30 PM — Bloque de Recuperación Nocturna</span><span>▼</span></div>
+      <div class="meal-body">
+        • <strong>Suplementación de descanso:</strong> ZMA y Ashwagandha para optimizar el entorno hormonal, reducir el cortisol y promover una recuperación muscular profunda.
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- VISTA ENTRENAMIENTO -->
+<!-- VISTA ENTRENAMIENTO COMPLETO (PPL + BRAZOS) -->
 <div class="content" id="training">
   <div class="card">
-    <div class="card-title">💪 Rutina Diaria</div>
+    <div class="card-title">💪 División de Rutina Especializada (Hipertrofia)</div>
+    
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>Lunes - Empuje</span><span>▼</span></div>
-      <div class="meal-body">Pecho, Hombro, Tríceps. 4x12 reps cada uno.</div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🔥 Lunes — Empuje (Pecho, Hombro, Tríceps)</span><span>▼</span></div>
+      <div class="meal-body">
+        • Press de banca inclinado con barra o mancuernas: 4 series x 8-12 reps.<br>
+        • Press plano en máquina o fondos: 4 series x 10-12 reps.<br>
+        • Press militar con mancuernas o elevaciones laterales: 4 series x 12 reps.<br>
+        • Press Francés con barra Z para tríceps: 4 series x 12 reps.<br>
+        • Extensiones de tríceps en polea alta: 3 series x 15 reps.
+      </div>
     </div>
+
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🌪️ Martes — Jalón (Espalda y Bíceps)</span><span>▼</span></div>
+      <div class="meal-body">
+        • Jalón al pecho con agarre prono: 4 series x 10-12 reps.<br>
+        • Remo con barra libre (estricto): 4 series x 8-12 reps.<br>
+        • Face pulls en polea (enfoque deltoide posterior): 4 series x 15 reps.<br>
+        • Curl de bíceps con barra recta o barra Z: 4 series x 10-12 reps.<br>
+        • Curl de bíceps alterno tipo martillo: 3 series x 12 reps.
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🍗 Miércoles — Pierna Completa (Enfoque Cuádriceps/Femorales)</span><span>▼</span></div>
+      <div class="meal-body">
+        • Sentadilla libre profunda o Prensa inclinada: 4 series x 8-12 reps.<br>
+        • Extensiones de cuádriceps en máquina: 4 series x 12-15 reps.<br>
+        • Curl femoral acostado o Peso muerto rumano: 4 series x 10-12 reps.<br>
+        • Elevación de talones para pantorrilla (en máquina de pie): 4 series x 15-20 reps.
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>💥 Jueves — Hipertrofia de Brazos y Abdomen</span><span>▼</span></div>
+      <div class="meal-body">
+        • Super-serie: Curl de bíceps en banco Scott + Extensiones de tríceps en polea (4 series x 12 reps).<br>
+        • Curl concentrado o martillo en polea baja para braquial: 3 series x 12 reps.<br>
+        • Fondos en paralelas enfocados en tríceps: 3 series x la falla.<br>
+        • Crunches en polea alta + elevaciones de piernas colgado: 4 series x 15-20 reps.
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🔋 Viernes a Domingo — Recuperación Activa y Cardio</span><span>▼</span></div>
+      <div class="meal-body">
+        • Sesiones dedicadas al descanso muscular para optimizar la hipertrofia y prevenir lesiones de fatiga acumulada.<br>
+        • Cardio en ayunas de baja intensidad constante (LISS) para mantener activo el metabolismo y controlar los niveles de grasa corporal.
+      </div>
+    </div>
+
   </div>
 </div>
 
