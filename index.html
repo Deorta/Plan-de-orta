@@ -16,24 +16,13 @@
     --gold: #f0a500;
     --gold2: #ffc94a;
     --blue: #3b82f6;
-    --blue2: #1d4ed8;
-    --green: #22c55e;
-    --orange: #f97316;
     --red: #ef4444;
     --text: #f0f0f0;
     --muted: #6b6b80;
-    --accent: #7c3aed;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; min-height: 100vh; overflow-x: hidden; }
 
   .app-header {
     background: linear-gradient(135deg, #0a0a0f 0%, #111128 100%);
@@ -43,39 +32,13 @@
     top: 0;
     z-index: 100;
   }
-
   .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+  .app-title { font-family: 'Bebas Neue', cursive; font-size: 26px; letter-spacing: 2px; background: linear-gradient(90deg, var(--gold), var(--gold2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .phase-badge { background: var(--red); color: white; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 6px; letter-spacing: 1px; }
+  .header-sub { font-size: 11px; color: var(--muted); font-family: 'Space Mono', monospace; }
 
-  .app-title {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 26px;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--gold2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .tabs {
-    display: flex;
-    background: var(--card);
-    border-bottom: 1px solid var(--border);
-    overflow-x: auto;
-    position: sticky;
-    top: 77px;
-    z-index: 99;
-  }
-  .tabs::-webkit-scrollbar { display: none; }
-
-  .tab {
-    flex: none;
-    padding: 12px 16px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--muted);
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s;
-  }
+  .tabs { display: flex; background: var(--card); border-bottom: 1px solid var(--border); overflow-x: auto; position: sticky; top: 77px; z-index: 99; }
+  .tab { flex: none; padding: 12px 16px; font-size: 12px; font-weight: 600; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; }
   .tab.active { color: var(--gold); border-bottom-color: var(--gold); }
 
   .content { display: none; padding: 16px; padding-bottom: 100px; }
@@ -83,58 +46,30 @@
 
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
   .card-title { font-family: 'Bebas Neue', cursive; font-size: 16px; color: var(--gold); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  
+  .weekend-alert { background: rgba(239, 68, 68, 0.1); border: 1px solid var(--red); color: #fca5a5; font-size: 11px; padding: 10px; border-radius: 8px; margin-bottom: 12px; text-align: center; line-height: 1.4; }
 
   .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
   .stat-box { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
   .stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; }
   .stat-value { font-family: 'Space Mono', monospace; font-size: 18px; font-weight: 700; color: var(--gold); }
-  .stat-unit { font-size: 10px; color: var(--muted); }
 
-  /* ESTILO DEL CHECKLIST */
-  .todo-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px;
-    background: var(--card2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    margin-bottom: 6px;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .todo-item:hover { background: rgba(240, 165, 0, 0.05); }
-  .todo-item input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--gold);
-    cursor: pointer;
-  }
+  .todo-item { display: flex; align-items: center; gap: 12px; padding: 10px; background: var(--card2); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 6px; cursor: pointer; }
+  .todo-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--gold); }
+  .todo-time { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--gold); background: rgba(240, 165, 0, 0.1); padding: 2px 6px; border-radius: 4px; }
   .todo-text { font-size: 12px; flex: 1; }
   .todo-item.done .todo-text { color: var(--muted); text-decoration: line-through; }
-
-  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px; }
-  .gallery-item { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 5px; text-align: center; }
-  .gallery-item img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; }
-
-  .btn-action {
-    background: var(--gold);
-    color: black;
-    border: none;
-    padding: 12px;
-    border-radius: 10px;
-    width: 100%;
-    font-weight: bold;
-    font-family: 'Bebas Neue';
-    letter-spacing: 1px;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
 
   .meal-card { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
   .meal-header { padding: 12px; cursor: pointer; display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; }
   .meal-body { display: none; padding: 12px; border-top: 1px solid var(--border); font-size: 12px; color: #d1d1e0; line-height: 1.5; }
   .meal-body.open { display: block; }
+
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px; }
+  .gallery-item { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 5px; text-align: center; }
+  .gallery-item img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; }
+
+  .btn-action { background: var(--gold); color: black; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-family: 'Bebas Neue'; letter-spacing: 1px; cursor: pointer; margin-bottom: 10px; }
 </style>
 </head>
 <body>
@@ -142,190 +77,178 @@
 <div class="app-header">
   <div class="header-top">
     <div class="app-title">CLASSIC PHYSIQUE</div>
-    <div class="phase-badge">PROGRESO NUBE</div>
+    <div class="phase-badge">FASE 1: DEFINICIÓN BASE</div>
   </div>
-  <div class="header-sub">Alex Orta — Lenovo LOQ Edition</div>
+  <div class="header-sub">Atleta: Cristian Alexander | Obj: 8% BF 🎯</div>
 </div>
 
 <div class="tabs">
   <div class="tab active" onclick="showTab('home', this)">Inicio</div>
-  <div class="tab" onclick="showTab('diet', this)">Dieta</div>
+  <div class="tab" onclick="showTab('diet', this)">Dieta (2400 Kcal)</div>
   <div class="tab" onclick="showTab('training', this)">Entreno</div>
-  <div class="tab" onclick="showTab('progress', this)">Fotos 📸</div>
+  <div class="tab" onclick="showTab('progress', this)">Progreso 📸</div>
 </div>
 
 <!-- VISTA INICIO -->
 <div class="content active" id="home">
+  <div class="weekend-alert">
+    ⚠️ <strong>PUNTO DÉBIL HISTÓRICO:</strong> Sábado y Domingo definirán tu resultado en Puerto Vallarta. ¡Mantén la disciplina el fin de semana! 🎯
+  </div>
+
   <div class="stats-grid">
     <div class="stat-box" onclick="editStat('peso')">
-      <div class="stat-label">Peso actual ✏️</div>
-      <div class="stat-value"><span id="peso-actual">112</span><span class="stat-unit"> kg</span></div>
+      <div class="stat-label">Peso ✏️</div>
+      <div class="stat-value"><span id="peso-actual">112</span><span style="font-size:10px; color:var(--muted)"> kg</span></div>
     </div>
     <div class="stat-box" onclick="editStat('grasa')">
-      <div class="stat-label">Grasa actual ✏️</div>
-      <div class="stat-value"><span id="grasa-actual">28</span><span class="stat-unit"> %</span></div>
+      <div class="stat-label">Grasa ✏️</div>
+      <div class="stat-value"><span id="grasa-actual">28</span><span style="font-size:10px; color:var(--muted)"> %</span></div>
     </div>
   </div>
-  <button class="btn-action" onclick="syncFirebase()">Sincronizar Peso y Grasa ☁️</button>
+  <button class="btn-action" onclick="syncFirebase()">Sincronizar Métricas ☁️</button>
   <div id="status" style="text-align:center; font-size:10px; color:var(--muted); margin-bottom:15px;">Esperando acción...</div>
 
-  <!-- CONTROL DIARIO (CHECKLIST) -->
+  <!-- CHECKLIST ESTRUCTURA BASE -->
   <div class="card">
-    <div class="card-title">✅ Checklist de Preparación Diaria</div>
+    <div class="card-title">⏰ Checklist de Adherencia Horaria</div>
     <div id="checklist-container">
       <div class="todo-item" onclick="toggleCheck('c1')">
+        <span class="todo-time">04:00 AM</span>
         <input type="checkbox" id="c1" onclick="event.stopPropagation()">
-        <span class="todo-text">🏃 Cardio en Ayunas (4:00 AM)</span>
+        <span class="todo-text">🏃 500ml agua + sal + Cardio (20-30 min caminata inclinada)</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c2')">
+        <span class="todo-time">05:00 AM</span>
         <input type="checkbox" id="c2" onclick="event.stopPropagation()">
-        <span class="todo-text">💊 Suplementos Mañana (Lipo 6, Omega 3, CoQ10, Vit C, D3)</span>
+        <span class="todo-text">☕ Salida al trabajo + Colágeno Hidrolizado 15g + Té Manzanilla</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c3')">
+        <span class="todo-time">10:00 AM</span>
         <input type="checkbox" id="c3" onclick="event.stopPropagation()">
-        <span class="todo-text">🍳 Comida 1: Desayuno (10:00 AM)</span>
+        <span class="todo-text">🍳 Comida 1 (Desayuno) + Stack de Suplementos Mañana</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c4')">
+        <span class="todo-time">04:00 PM</span>
         <input type="checkbox" id="c4" onclick="event.stopPropagation()">
-        <span class="todo-text">💊 Suplemento Tarde (Lipo 6 Black - 4:00 PM)</span>
+        <span class="todo-text">🍗 Comida Principal (Pre-Gym) + Lipo 6 Black (1 cap)</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c5')">
+        <span class="todo-time">07:00 PM</span>
         <input type="checkbox" id="c5" onclick="event.stopPropagation()">
-        <span class="todo-text">🍗 Comida 2: Pre-Gym (4:00 PM)</span>
+        <span class="todo-text">💪 Creatina 5g en agua antes de entrar al GYM</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c6')">
+        <span class="todo-time">09:00 PM</span>
         <input type="checkbox" id="c6" onclick="event.stopPropagation()">
-        <span class="todo-text">💪 Creatina 5g + Entrenamiento de Hipertrofia (7:00 PM)</span>
+        <span class="todo-text">🥛 Batido ISO-100 (1 scoop al salir) + Cena Post-Entreno en casa</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c7')">
+        <span class="todo-time">10:30 PM</span>
         <input type="checkbox" id="c7" onclick="event.stopPropagation()">
-        <span class="todo-text">🥛 Batido ISO / Proteína Hidrolizada + Cena Post-Entreno</span>
-      </div>
-      <div class="todo-item" onclick="toggleCheck('c8')">
-        <input type="checkbox" id="c8" onclick="event.stopPropagation()">
-        <span class="todo-text">🌙 Suplementos Noche (ZMA, Ashwagandha)</span>
+        <span class="todo-text">🌙 ZMA + Ashwagandha 500mg + L-Theanine + Dormir</span>
       </div>
     </div>
-    <button class="btn-action" style="background:var(--border); color:var(--gold); margin-top:10px; font-size:11px; padding:6px;" onclick="resetChecklist()">🔄 Reiniciar Checklist Diario</button>
+    <button class="btn-action" style="background:var(--border); color:var(--gold); margin-top:10px; font-size:11px; padding:6px;" onclick="resetChecklist()">🔄 Reiniciar Día</button>
   </div>
 </div>
 
-<!-- VISTA DIETA TOTALMENTE COMPLETA -->
+<!-- VISTA DIETA EXACTA FASE 1 -->
 <div class="content" id="diet">
   <div class="card">
-    <div class="card-title">🍎 Plan Nutricional de Volumen Limpio</div>
+    <div class="card-title">🍎 Menú Diario Estricto - 2,400 Kcal</div>
     
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🍳 10:00 AM — Comida 1 (Desayuno)</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🍳 10:00 AM — Comida 1 (Desayuno) | ~620 kcal</span><span>▼</span></div>
       <div class="meal-body">
-        • 3 huevos enteros + 4 claras de huevo.<br>
-        • 70g de avena pesada en seco.<br>
+        • 3 huevos enteros + 4 claras (cocinados con ½ cdta de aceite de coco).<br>
+        • 70g de avena en copos preparada con agua.<br>
         • 1 plátano mediano.<br>
-        • <strong>Suplementación:</strong> Lipo 6, Omega 3, CoQ10, Vitamina C y D3.
+        • Café negro sin azúcar.<br>
+        • <strong>Suplementos:</strong> Lipo 6 (1 cap) + Vitamina D3 + CoQ10 + Vitamina C + Omega-3 (1 cap).
       </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🍗 4:00 PM — Comida 2 (Pre-Entrenamiento)</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🍗 04:00 PM — Comida Principal (Pre-Gym) | ~780 kcal</span><span>▼</span></div>
       <div class="meal-body">
-        • 200g de pechuga de pollo desmenuzada o filete de res magro.<br>
-        • 150g de arroz blanco cocido.<br>
-        • Ensalada verde ligera o vegetales al vapor.<br>
-        • <strong>Suplementación:</strong> Segunda dosis de Lipo 6 Black (Termogénico).
+        • 250g de pechuga de pollo a la plancha.<br>
+        • 300g de papa blanca cocida (tu combustible principal de entrenamiento).<br>
+        • Verduras libres al vapor o crudas.<br>
+        • 1 cdta de aceite de oliva.<br>
+        • <strong>Suplementos:</strong> Lipo 6 Black (1 cap).
       </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>💪 6:30 PM — Período Intra-Gym</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🥛 09:00 PM — Cena Post-Entreno | ~620 kcal</span><span>▼</span></div>
       <div class="meal-body">
-        • 5g de Creatina Monohidratada tomados justo antes o durante la sesión para saturación muscular.<br>
-        • Hidratación constante durante el entrenamiento intensivo con cargas pesadas.
+        • <strong>Inmediato al salir:</strong> 1 scoop de ISO-100 Dymatize con agua fría.<br>
+        • <strong>En casa:</strong> 150g de pollo al horno (o 5 claras + 2 huevos enteros).<br>
+        • 200g de papa blanca hervida o al vapor.<br>
+        • Ensalada grande libre (lechuga, tomate, pepino).<br>
+        • ½ aguacate o 1 cdta de aceite de oliva.<br>
+        • <strong>Suplementos:</strong> Omega-3 (1 cap) + Infusión de manzanilla.
       </div>
     </div>
-
-    <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🥛 9:00 PM — Comida 3 (Post-Entrenamiento / Cena)</span><span>▼</span></div>
-      <div class="meal-body">
-        • 1 scoop de Proteína Aislada / Hidrolizada (ISO-100 o similar) disuelta en agua.<br>
-        • 200g de carne magra o pescado blanco.<br>
-        • 120g de camote cocido o arroz blanco para reposición de glucógeno muscular.
-      </div>
-    </div>
-
-    <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🌙 10:30 PM — Bloque de Recuperación Nocturna</span><span>▼</span></div>
-      <div class="meal-body">
-        • <strong>Suplementación de descanso:</strong> ZMA y Ashwagandha para optimizar el entorno hormonal, reducir el cortisol y promover una recuperación muscular profunda.
-      </div>
-    </div>
-
   </div>
 </div>
 
-<!-- VISTA ENTRENAMIENTO COMPLETO (PPL + BRAZOS) -->
+<!-- VISTA ENTRENAMIENTO FASE 1 -->
 <div class="content" id="training">
   <div class="card">
-    <div class="card-title">💪 División de Rutina Especializada (Hipertrofia)</div>
+    <div class="card-title">🏋️ Rutina Semanal Hipertrofia (7:00 PM)</div>
     
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🔥 Lunes — Empuje (Pecho, Hombro, Tríceps)</span><span>▼</span></div>
-      <div class="meal-body">
-        • Press de banca inclinado con barra o mancuernas: 4 series x 8-12 reps.<br>
-        • Press plano en máquina o fondos: 4 series x 10-12 reps.<br>
-        • Press militar con mancuernas o elevaciones laterales: 4 series x 12 reps.<br>
-        • Press Francés con barra Z para tríceps: 4 series x 12 reps.<br>
-        • Extensiones de tríceps en polea alta: 3 series x 15 reps.
-      </div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>💥 Lunes — Pecho + Tríceps</span><span>▼</span></div>
+      <div class="meal-body">• Series y Repeticiones: 4 x 10-12.<br>
+• 🏃 <strong>Cardio Post-Gym:</strong> 20 min de caminata rápida.</div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🌪️ Martes — Jalón (Espalda y Bíceps)</span><span>▼</span></div>
-      <div class="meal-body">
-        • Jalón al pecho con agarre prono: 4 series x 10-12 reps.<br>
-        • Remo con barra libre (estricto): 4 series x 8-12 reps.<br>
-        • Face pulls en polea (enfoque deltoide posterior): 4 series x 15 reps.<br>
-        • Curl de bíceps con barra recta o barra Z: 4 series x 10-12 reps.<br>
-        • Curl de bíceps alterno tipo martillo: 3 series x 12 reps.
-      </div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🌪️ Martes — Espalda + Bíceps</span><span>▼</span></div>
+      <div class="meal-body">• Series y Repeticiones: 4 x 10-12.<br>
+• 🏃 <strong>Cardio Post-Gym:</strong> 20 min de caminata rápida.</div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🍗 Miércoles — Pierna Completa (Enfoque Cuádriceps/Femorales)</span><span>▼</span></div>
-      <div class="meal-body">
-        • Sentadilla libre profunda o Prensa inclinada: 4 series x 8-12 reps.<br>
-        • Extensiones de cuádriceps en máquina: 4 series x 12-15 reps.<br>
-        • Curl femoral acostado o Peso muerto rumano: 4 series x 10-12 reps.<br>
-        • Elevación de talones para pantorrilla (en máquina de pie): 4 series x 15-20 reps.
-      </div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🍗 Miércoles — Piernas Completas</span><span>▼</span></div>
+      <div class="meal-body">• Series y Repeticiones: 4 x 12-15.<br>
+• 🚴 <strong>Cardio Post-Gym:</strong> 15 min de bicicleta.</div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>💥 Jueves — Hipertrofia de Brazos y Abdomen</span><span>▼</span></div>
-      <div class="meal-body">
-        • Super-serie: Curl de bíceps en banco Scott + Extensiones de tríceps en polea (4 series x 12 reps).<br>
-        • Curl concentrado o martillo en polea baja para braquial: 3 series x 12 reps.<br>
-        • Fondos en paralelas enfocados en tríceps: 3 series x la falla.<br>
-        • Crunches en polea alta + elevaciones de piernas colgado: 4 series x 15-20 reps.
-      </div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🛡️ Jueves — Hombros + Trapecios</span><span>▼</span></div>
+      <div class="meal-body">• Series y Repeticiones: 4 x 10-12.<br>
+• 🏃 <strong>Cardio Post-Gym:</strong> 20 min de caminata rápida.</div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🔋 Viernes a Domingo — Recuperación Activa y Cardio</span><span>▼</span></div>
-      <div class="meal-body">
-        • Sesiones dedicadas al descanso muscular para optimizar la hipertrofia y prevenir lesiones de fatiga acumulada.<br>
-        • Cardio en ayunas de baja intensidad constante (LISS) para mantener activo el metabolismo y controlar los niveles de grasa corporal.
-      </div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🦾 Viernes — Full Body + Core</span><span>▼</span></div>
+      <div class="meal-body">• Series y Repeticiones: 3 x 15.<br>
+• 🏃 <strong>Cardio Post-Gym:</strong> 25 min de cardio moderado.</div>
     </div>
 
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🏃 Sábado — Descanso Activo</span><span>▼</span></div>
+      <div class="meal-body">• ⚠️ <strong>Solo Cardio:</strong> 4:00 AM en ayunas (30 min caminata inclinada). No entrenas pesas.</div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🛌 Domingo — Descanso Total</span><span>▼</span></div>
+      <div class="meal-body">• Cero entrenamiento. Dedica el día a preparar tus tuppers de la semana para blindar tu adherencia.</div>
+    </div>
   </div>
 </div>
 
 <!-- VISTA FOTOS DE PROGRESO -->
 <div class="content" id="progress">
   <div class="card">
-    <div class="card-title">📸 Galería de Progreso</div>
+    <div class="card-title">📸 Control Visual Quincenal</div>
+    <div style="font-size:11px; color:var(--muted); margin-bottom:12px; line-height:1.4;">
+      "La báscula engaña; la foto no". Tómate las fotos cada 2 semanas los lunes de pesaje a las 10:00 AM, con la misma ropa y lugar.
+    </div>
     <input type="file" id="file-input" accept="image/*" style="display:none;" onchange="uploadPhoto()">
-    <button class="btn-action" style="background:var(--blue); color:white;" onclick="document.getElementById('file-input').click()">Subir Foto de Hoy</button>
+    <button class="btn-action" style="background:var(--blue); color:white;" onclick="document.getElementById('file-input').click()">Subir Foto de Control</button>
     <div id="gallery" class="gallery-grid"></div>
   </div>
 </div>
@@ -342,12 +265,11 @@
   </div>
 </div>
 
-<!-- SCRIPT DE FIREBASE COMPAT -->
+<!-- CREDENCIALES DE TU PROYECTO -->
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
 <script>
-  // ¡Configuración enlazada con tus credenciales reales! 🎯
   const firebaseConfig = {
     apiKey: "AIzaSyDQw3zklRhBMi7AyHO3negVhJWY1rMIOYo",
     authDomain: "de-orta.firebaseapp.com",
@@ -388,46 +310,32 @@
     db.collection("seguimiento").doc("cristian").update({
       peso: p, grasa: g, fecha: new Date().toLocaleString()
     }).catch(() => {
-      db.collection("seguimiento").doc("cristian").set({
-        peso: p, grasa: g, fecha: new Date().toLocaleString()
-      });
+      db.collection("seguimiento").doc("cristian").set({ peso: p, grasa: g, fecha: new Date().toLocaleString() });
     }).then(() => {
-      document.getElementById('status').innerText = "✅ Datos en la nube";
+      document.getElementById('status').innerText = "✅ Sincronizado en la Nube";
     });
   }
 
   function toggleCheck(id) {
     const checkbox = document.getElementById(id);
     checkbox.checked = !checkbox.checked;
-    
-    if(checkbox.checked) {
-      checkbox.parentElement.classList.add('done');
-    } else {
-      checkbox.parentElement.classList.remove('done');
-    }
-
-    db.collection("checklist").doc("diario").update({
-      [id]: checkbox.checked
-    }).catch(() => {
+    if(checkbox.checked) { checkbox.parentElement.classList.add('done'); } else { checkbox.parentElement.classList.remove('done'); }
+    db.collection("checklist").doc("diario").update({ [id]: checkbox.checked }).catch(() => {
       db.collection("checklist").doc("diario").set({ [id]: checkbox.checked });
     });
   }
 
   function resetChecklist() {
-    if(confirm("¿Quieres reiniciar el control del día de hoy?")) {
-      const resetData = { c1:false, c2:false, c3:false, c4:false, c5:false, c6:false, c7:false, c8:false };
-      db.collection("checklist").doc("diario").set(resetData).then(() => {
-        alert("¡Lista limpia! A darle duro al día. 💪");
-      });
+    if(confirm("¿Quieres reiniciar el checklist de hoy?")) {
+      const resetData = { c1:false, c2:false, c3:false, c4:false, c5:false, c6:false, c7:false };
+      db.collection("checklist").doc("diario").set(resetData).then(() => { alert("¡A darle duro al día! 🦾"); });
     }
   }
 
   function uploadPhoto() {
     const file = document.getElementById('file-input').files[0];
     const reader = new FileReader();
-    reader.onloadend = () => {
-      db.collection("fotos").add({ url: reader.result, fecha: new Date().toLocaleDateString() });
-    };
+    reader.onloadend = () => { db.collection("fotos").add({ url: reader.result, fecha: new Date().toLocaleDateString() }); };
     reader.readAsDataURL(file);
   }
 
@@ -446,11 +354,7 @@
           const cb = document.getElementById(id);
           if(cb) {
             cb.checked = datos[id];
-            if(datos[id]) {
-              cb.parentElement.classList.add('done');
-            } else {
-              cb.parentElement.classList.remove('done');
-            }
+            if(datos[id]) { cb.parentElement.classList.add('done'); } else { cb.parentElement.classList.remove('done'); }
           }
         });
       }
@@ -459,9 +363,7 @@
     db.collection("fotos").orderBy("fecha", "desc").onSnapshot(snap => {
       const gallery = document.getElementById('gallery');
       gallery.innerHTML = "";
-      snap.forEach(doc => {
-        gallery.innerHTML += `<div class="gallery-item"><img src="${doc.data().url}"><div style="font-size:9px;">${doc.data().fecha}</div></div>`;
-      });
+      snap.forEach(doc => { gallery.innerHTML += `<div class="gallery-item"><img src="${doc.data().url}"><div style="font-size:9px; margin-top:3px;">${doc.data().fecha}</div></div>`; });
     });
   };
 </script>
