@@ -85,7 +85,7 @@
   .ex-item.checked { border-left-color: var(--gold); background: rgba(240, 165, 0, 0.03); color: var(--muted); text-decoration: line-through; }
   .ex-item input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--gold); }
 
-  /* DISEÑO DEL PANEL DE METRICAS */
+  /* PANEL DE METRICAS */
   .metric-row { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: var(--card2); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 6px; font-size: 12px; }
   .metric-pct { font-family: 'Space Mono', monospace; font-weight: bold; font-size: 14px; color: var(--green); }
   .chart-container { position: relative; margin: 20px auto; height: 220px; width: 220px; }
@@ -105,7 +105,7 @@
     <div class="app-title">CLASSIC PHYSIQUE</div>
     <div class="phase-badge">FASE 1: DEFINICIÓN BASE</div>
   </div>
-  <div class="header-sub">Atleta: Cristian Alexander | Obj: 8% BF 🎯[span_2](start_span)[span_2](end_span)</div>
+  <div class="header-sub">Atleta: Cristian Alexander | Obj: 8% BF 🎯</div>
 </div>
 
 <div class="tabs">
@@ -113,23 +113,23 @@
   <div class="tab" onclick="showTab('diet', this)">Dieta</div>
   <div class="tab" onclick="showTab('supps', this)">Suplementos</div>
   <div class="tab" onclick="showTab('training', this)">Entreno</div>
-  <div class="tab" onclick="showTab('metrics', this)" onclick="updateCharts()">Métricas 📊</div>
+  <div class="tab" onclick="showTab('metrics', this)">Métricas 📊</div>
   <div class="tab" onclick="showTab('progress', this)">Progreso 📸</div>
 </div>
 
 <!-- VISTA INICIO -->
 <div class="content active" id="home">
   <div class="weekend-alert">
-    ⚠️ <strong>PUNTO DÉBIL HISTÓRICO:</strong> Sábado y Domingo definirán tu resultado en Puerto Vallarta. ¡Mantén la disciplina el fin de semana! 🎯[span_3](start_span)[span_3](end_span)
+    ⚠️ <strong>PUNTO DÉBIL HISTÓRICO:</strong> Sábado y Domingo definirán tu resultado en Puerto Vallarta. ¡Mantén la disciplina el fin de semana! 🎯
   </div>
 
   <div class="stats-grid">
     <div class="stat-box" onclick="editStat('peso')">
-      <div class="stat-label">Peso ✏️[span_4](start_span)[span_4](end_span)</div>
+      <div class="stat-label">Peso ✏️</div>
       <div class="stat-value"><span id="peso-actual">112</span><span style="font-size:10px; color:var(--muted)"> kg</span></div>
     </div>
     <div class="stat-box" onclick="editStat('grasa')">
-      <div class="stat-label">Grasa ✏️[span_5](start_span)[span_5](end_span)</div>
+      <div class="stat-label">Grasa ✏️</div>
       <div class="stat-value"><span id="grasa-actual">28</span><span style="font-size:10px; color:var(--muted)"> %</span></div>
     </div>
   </div>
@@ -142,37 +142,37 @@
       <div class="todo-item" onclick="toggleCheck('c1')">
         <span class="todo-time">04:00 AM</span>
         <input type="checkbox" id="c1" onclick="event.stopPropagation()">
-        <span class="todo-text">🏃 500ml agua + sal + Cardio (20-30 min caminata inclinada)[span_6](start_span)[span_6](end_span)</span>
+        <span class="todo-text">🏃 500ml agua + sal + Cardio (20-30 min caminata inclinada)</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c2')">
         <span class="todo-time">05:00 AM</span>
         <input type="checkbox" id="c2" onclick="event.stopPropagation()">
-        <span class="todo-text">☕ Salida al trabajo + Bloque de Mañana[span_7](start_span)[span_7](end_span)</span>
+        <span class="todo-text">☕ Salida al trabajo + Bloque de Mañana</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c3')">
         <span class="todo-time">10:00 AM</span>
         <input type="checkbox" id="c3" onclick="event.stopPropagation()">
-        <span class="todo-text">🍳 Comida 1 (Desayuno) + Suplementación Base[span_8](start_span)[span_8](end_span)</span>
+        <span class="todo-text">🍳 Comida 1 (Desayuno) + Suplementación Base</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c4')">
         <span class="todo-time">04:00 PM</span>
         <input type="checkbox" id="c4" onclick="event.stopPropagation()">
-        <span class="todo-text">🍗 Comida Principal (Pre-Gym) + Lipo 6[span_9](start_span)[span_9](end_span)</span>
+        <span class="todo-text">🍗 Comida Principal (Pre-Gym) + Lipo 6</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c5')">
         <span class="todo-time">07:00 PM</span>
         <input type="checkbox" id="c5" onclick="event.stopPropagation()">
-        <span class="todo-text">💪 Creatina 5g en agua antes de entrar al GYM[span_10](start_span)[span_10](end_span)</span>
+        <span class="todo-text">💪 Creatina 5g en agua antes de entrar al GYM</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c6')">
         <span class="todo-time">09:00 PM</span>
         <input type="checkbox" id="c6" onclick="event.stopPropagation()">
-        <span class="todo-text">🥛 Batido ISO-100 + Cena Post-Entreno en casa[span_11](start_span)[span_11](end_span)</span>
+        <span class="todo-text">🥛 Batido ISO-100 + Cena Post-Entreno en casa</span>
       </div>
       <div class="todo-item" onclick="toggleCheck('c7')">
         <span class="todo-time">10:30 PM</span>
         <input type="checkbox" id="c7" onclick="event.stopPropagation()">
-        <span class="todo-text">🌙 Stack Nocturno + Descanso Profundo[span_12](start_span)[span_12](end_span)</span>
+        <span class="todo-text">🌙 Stack Nocturno + Descanso Profundo</span>
       </div>
     </div>
     <button class="btn-action" style="background:var(--border); color:var(--gold); margin-top:10px; font-size:11px; padding:6px;" onclick="resetChecklist()">🔄 Reiniciar Día</button>
@@ -182,43 +182,43 @@
 <!-- VISTA DIETA -->
 <div class="content" id="diet">
   <div class="card">
-    <div class="card-title">🍎 Bloques Nutricionales - FASE 1 (2400 Kcal)[span_13](start_span)[span_13](end_span)</div>
+    <div class="card-title">🍎 Bloques Nutricionales - FASE 1 (2400 Kcal)</div>
     
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🍳 10:00 AM — Comida 1 (Desayuno)[span_14](start_span)[span_14](end_span)</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🍳 10:00 AM — Comida 1 (Desayuno)</span><span>▼</span></div>
       <div class="meal-body">
         <div class="exercise-list">
-          <label class="ex-item" id="label-d1"><input type="checkbox" id="d1" onclick="togglePersistentCheck('d1')"> <span>🥚 3 Huevos enteros[span_15](start_span)[span_15](end_span)</span></label>
-          <label class="ex-item" id="label-d2"><input type="checkbox" id="d2" onclick="togglePersistentCheck('d2')"> <span>🥣 4 Claras de huevo[span_16](start_span)[span_16](end_span)</span></label>
-          <label class="ex-item" id="label-d3"><input type="checkbox" id="d3" onclick="togglePersistentCheck('d3')"> <span>🥥 ½ cdta de Aceite de Coco[span_17](start_span)[span_17](end_span)</span></label>
-          <label class="ex-item" id="label-d4"><input type="checkbox" id="d4" onclick="togglePersistentCheck('d4')"> <span>🌾 70g de Avena en copos[span_18](start_span)[span_18](end_span)</span></label>
-          <label class="ex-item" id="label-d5"><input type="checkbox" id="d5" onclick="togglePersistentCheck('d5')"> <span>🍌 1 Plátano mediano[span_19](start_span)[span_19](end_span)</span></label>
-          <label class="ex-item" id="label-d6"><input type="checkbox" id="d6" onclick="togglePersistentCheck('d6')"> <span>☕ Café negro sin azúcar[span_20](start_span)[span_20](end_span)</span></label>
+          <label class="ex-item" id="label-d1"><input type="checkbox" id="d1" onclick="togglePersistentCheck('d1')"> <span>🥚 3 Huevos enteros</span></label>
+          <label class="ex-item" id="label-d2"><input type="checkbox" id="d2" onclick="togglePersistentCheck('d2')"> <span>🥣 4 Claras de huevo</span></label>
+          <label class="ex-item" id="label-d3"><input type="checkbox" id="d3" onclick="togglePersistentCheck('d3')"> <span>🥥 ½ cdta de Aceite de Coco</span></label>
+          <label class="ex-item" id="label-d4"><input type="checkbox" id="d4" onclick="togglePersistentCheck('d4')"> <span>🌾 70g de Avena en copos</span></label>
+          <label class="ex-item" id="label-d5"><input type="checkbox" id="d5" onclick="togglePersistentCheck('d5')"> <span>🍌 1 Plátano mediano</span></label>
+          <label class="ex-item" id="label-d6"><input type="checkbox" id="d6" onclick="togglePersistentCheck('d6')"> <span>☕ Café negro sin azúcar</span></label>
         </div>
       </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🍗 04:00 PM — Comida Principal (Pre-Gym)[span_21](start_span)[span_21](end_span)</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🍗 04:00 PM — Comida Principal (Pre-Gym)</span><span>▼</span></div>
       <div class="meal-body">
         <div class="exercise-list">
-          <label class="ex-item" id="label-d7"><input type="checkbox" id="d7" onclick="togglePersistentCheck('d7')"> <span>🐔 250g de Pechuga de pollo[span_22](start_span)[span_22](end_span)</span></label>
-          <label class="ex-item" id="label-d8"><input type="checkbox" id="d8" onclick="togglePersistentCheck('d8')"> <span>🥔 300g de Papa blanca cocida[span_23](start_span)[span_23](end_span)</span></label>
-          <label class="ex-item" id="label-d9"><input type="checkbox" id="d9" onclick="togglePersistentCheck('d9')"> <span>🥦 Verduras libres al vapor[span_24](start_span)[span_24](end_span)</span></label>
-          <label class="ex-item" id="label-d10"><input type="checkbox" id="d10" onclick="togglePersistentCheck('d10')"> <span>🫒 1 cdta de Aceite de Oliva[span_25](start_span)[span_25](end_span)</span></label>
+          <label class="ex-item" id="label-d7"><input type="checkbox" id="d7" onclick="togglePersistentCheck('d7')"> <span>🐔 250g de Pechuga de pollo</span></label>
+          <label class="ex-item" id="label-d8"><input type="checkbox" id="d8" onclick="togglePersistentCheck('d8')"> <span>🥔 300g de Papa blanca cocida</span></label>
+          <label class="ex-item" id="label-d9"><input type="checkbox" id="d9" onclick="togglePersistentCheck('d9')"> <span>🥦 Verduras libres al vapor</span></label>
+          <label class="ex-item" id="label-d10"><input type="checkbox" id="d10" onclick="togglePersistentCheck('d10')"> <span>🫒 1 cdta de Aceite de Oliva</span></label>
         </div>
       </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🥛 09:00 PM — Cena Post-Entreno[span_26](start_span)[span_26](end_span)</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🥛 09:00 PM — Cena Post-Entreno</span><span>▼</span></div>
       <div class="meal-body">
         <div class="exercise-list">
-          <label class="ex-item" id="label-d11"><input type="checkbox" id="d11" onclick="togglePersistentCheck('d11')"> <span>🥤 1 Scoop de ISO-100 Dymatize[span_27](start_span)[span_27](end_span)</span></label>
-          <label class="ex-item" id="label-d12"><input type="checkbox" id="d12" onclick="togglePersistentCheck('d12')"> <span>🍗 150g de Pollo al horno[span_28](start_span)[span_28](end_span)</span></label>
-          <label class="ex-item" id="label-d13"><input type="checkbox" id="d13" onclick="togglePersistentCheck('d13')"> <span>🥔 200g de Papa blanca hervida[span_29](start_span)[span_29](end_span)</span></label>
-          <label class="ex-item" id="label-d14"><input type="checkbox" id="d14" onclick="togglePersistentCheck('d14')"> <span>🥗 Ensalada grande libre[span_30](start_span)[span_30](end_span)</span></label>
-          <label class="ex-item" id="label-d15"><input type="checkbox" id="d15" onclick="togglePersistentCheck('d15')"> <span>🥑 ½ Aguacate o Aceite de Oliva[span_31](start_span)[span_31](end_span)</span></label>
+          <label class="ex-item" id="label-d11"><input type="checkbox" id="d11" onclick="togglePersistentCheck('d11')"> <span>🥤 1 Scoop de ISO-100 Dymatize</span></label>
+          <label class="ex-item" id="label-d12"><input type="checkbox" id="d12" onclick="togglePersistentCheck('d12')"> <span>🍗 150g de Pollo al horno</span></label>
+          <label class="ex-item" id="label-d13"><input type="checkbox" id="d13" onclick="togglePersistentCheck('d13')"> <span>🥔 200g de Papa blanca hervida</span></label>
+          <label class="ex-item" id="label-d14"><input type="checkbox" id="d14" onclick="togglePersistentCheck('d14')"> <span>🥗 Ensalada grande libre</span></label>
+          <label class="ex-item" id="label-d15"><input type="checkbox" id="d15" onclick="togglePersistentCheck('d15')"> <span>🥑 ½ Aguacate o Aceite de Oliva</span></label>
         </div>
       </div>
     </div>
@@ -228,42 +228,42 @@
 <!-- VISTA SUPLEMENTOS -->
 <div class="content" id="supps">
   <div class="card">
-    <div class="card-title">💊 Stack Completo de Suplementos[span_32](start_span)[span_32](end_span)</div>
+    <div class="card-title">💊 Stack Completo de Suplementos</div>
     
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🌅 Mañana (04:00 AM - 05:00 AM)[span_33](start_span)[span_33](end_span)</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🌅 Mañana (04:00 AM - 05:00 AM)</span><span>▼</span></div>
       <div class="meal-body">
         <div class="exercise-list">
-          <label class="ex-item" id="label-s1"><input type="checkbox" id="s1" onclick="togglePersistentCheck('s1')"> <span>🧂 500ml de Agua + sal (4:00 AM)[span_34](start_span)[span_34](end_span)</span></label>
-          <label class="ex-item" id="label-s2"><input type="checkbox" id="s2" onclick="togglePersistentCheck('s2')"> <span>✨ 15g de Colágeno Hidrolizado[span_35](start_span)[span_35](end_span)</span></label>
-          <label class="ex-item" id="label-s3"><input type="checkbox" id="s3" onclick="togglePersistentCheck('s3')"> <span>🍵 1 taza de Té de Manzanilla (5:00 AM)[span_36](start_span)[span_36](end_span)</span></label>
+          <label class="ex-item" id="label-s1"><input type="checkbox" id="s1" onclick="togglePersistentCheck('s1')"> <span>🧂 500ml de Agua + sal (4:00 AM)</span></label>
+          <label class="ex-item" id="label-s2"><input type="checkbox" id="s2" onclick="togglePersistentCheck('s2')"> <span>✨ 15g de Colágeno Hidrolizado</span></label>
+          <label class="ex-item" id="label-s3"><input type="checkbox" id="s3" onclick="togglePersistentCheck('s3')"> <span>🍵 1 taza de Té de Manzanilla (5:00 AM)</span></label>
         </div>
       </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🍳 Con el Desayuno (10:00 AM)[span_37](start_span)[span_37](end_span)</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🍳 Con el Desayuno (10:00 AM)</span><span>▼</span></div>
       <div class="meal-body">
         <div class="exercise-list">
-          <label class="ex-item" id="label-s4"><input type="checkbox" id="s4" onclick="togglePersistentCheck('s4')"> <span>🔥 Lipo 6 Black (1 cápsula)[span_38](start_span)[span_38](end_span)</span></label>
-          <label class="ex-item" id="label-s5"><input type="checkbox" id="s5" onclick="togglePersistentCheck('s5')"> <span>☀️ Vitamina D3 (5,000 UI)[span_39](start_span)[span_39](end_span)</span></label>
-          <label class="ex-item" id="label-s6"><input type="checkbox" id="s6" onclick="togglePersistentCheck('s6')"> <span>🛡️ CoQ10 (Coenzima Q10)[span_40](start_span)[span_40](end_span)</span></label>
-          <label class="ex-item" id="label-s7"><input type="checkbox" id="s7" onclick="togglePersistentCheck('s7')"> <span>🍊 Vitamina C[span_41](start_span)[span_41](end_span)</span></label>
-          <label class="ex-item" id="label-s8"><input type="checkbox" id="s8" onclick="togglePersistentCheck('s8')"> <span>🐟 Omega-3 (1 cápsula)[span_42](start_span)[span_42](end_span)</span></label>
+          <label class="ex-item" id="label-s4"><input type="checkbox" id="s4" onclick="togglePersistentCheck('s4')"> <span>🔥 Lipo 6 Black (1 cápsula)</span></label>
+          <label class="ex-item" id="label-s5"><input type="checkbox" id="s5" onclick="togglePersistentCheck('s5')"> <span>☀️ Vitamina D3 (5,000 UI)</span></label>
+          <label class="ex-item" id="label-s6"><input type="checkbox" id="s6" onclick="togglePersistentCheck('s6')"> <span>🛡️ CoQ10 (Coenzima Q10)</span></label>
+          <label class="ex-item" id="label-s7"><input type="checkbox" id="s7" onclick="togglePersistentCheck('s7')"> <span>🍊 Vitamina C</span></label>
+          <label class="ex-item" id="label-s8"><input type="checkbox" id="s8" onclick="togglePersistentCheck('s8')"> <span>🐟 Omega-3 (1 cápsula)</span></label>
         </div>
       </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>⚡ Tarde/Noche (04:00 PM - 10:30 PM)[span_43](start_span)[span_43](end_span)</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>⚡ Tarde/Noche (04:00 PM - 10:30 PM)</span><span>▼</span></div>
       <div class="meal-body">
         <div class="exercise-list">
-          <label class="ex-item" id="label-s9"><input type="checkbox" id="s9" onclick="togglePersistentCheck('s9')"> <span>🔥 Lipo 6 Black (1 cap - 4:00 PM)[span_44](start_span)[span_44](end_span)</span></label>
-          <label class="ex-item" id="label-s10"><input type="checkbox" id="s10" onclick="togglePersistentCheck('s10')"> <span>🧬 Creatina Monohidratada (5g - 7:00 PM)[span_45](start_span)[span_45](end_span)</span></label>
-          <label class="ex-item" id="label-s11"><input type="checkbox" id="s11" onclick="togglePersistentCheck('s11')"> <span>🥤 1 Scoop de ISO-100 Dymatize (9:00 PM)[span_46](start_span)[span_46](end_span)</span></label>
-          <label class="ex-item" id="label-s12"><input type="checkbox" id="s12" onclick="togglePersistentCheck('s12')"> <span>🐟 Omega-3 (1 cap con cena)[span_47](start_span)[span_47](end_span)</span></label>
-          <label class="ex-item" id="label-s13"><input type="checkbox" id="s13" onclick="togglePersistentCheck('s13')"> <span>💤 ZMA Platinum (Antes de dormir)[span_48](start_span)[span_48](end_span)</span></label>
-          <label class="ex-item" id="label-s14"><input type="checkbox" id="s14" onclick="togglePersistentCheck('s14')"> <span>🌿 Ashwagandha 500mg + L-Theanine[span_49](start_span)[span_49](end_span)</span></label>
+          <label class="ex-item" id="label-s9"><input type="checkbox" id="s9" onclick="togglePersistentCheck('s9')"> <span>🔥 Lipo 6 Black (1 cap - 4:00 PM)</span></label>
+          <label class="ex-item" id="label-s10"><input type="checkbox" id="s10" onclick="togglePersistentCheck('s10')"> <span>🧬 Creatina Monohidratada (5g - 7:00 PM)</span></label>
+          <label class="ex-item" id="label-s11"><input type="checkbox" id="s11" onclick="togglePersistentCheck('s11')"> <span>🥤 1 Scoop de ISO-100 Dymatize (9:00 PM)</span></label>
+          <label class="ex-item" id="label-s12"><input type="checkbox" id="s12" onclick="togglePersistentCheck('s12')"> <span>🐟 Omega-3 (1 cap con cena)</span></label>
+          <label class="ex-item" id="label-s13"><input type="checkbox" id="s13" onclick="togglePersistentCheck('s13')"> <span>💤 ZMA Platinum (Antes de dormir)</span></label>
+          <label class="ex-item" id="label-s14"><input type="checkbox" id="s14" onclick="togglePersistentCheck('s14')"> <span>🌿 Ashwagandha 500mg + L-Theanine</span></label>
         </div>
       </div>
     </div>
@@ -273,76 +273,76 @@
 <!-- VISTA ENTRENO -->
 <div class="content" id="training">
   <div class="card">
-    <div class="card-title">🏋️ Plan de Cargas e Hipertrofia[span_50](start_span)[span_50](end_span)</div>
+    <div class="card-title"></div>
     
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>💥 Lunes — Pecho + Tríceps[span_51](start_span)[span_51](end_span)</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>💥 Lunes — Pecho + Tríceps</span><span>▼</span></div>
       <div class="meal-body">
         <div class="exercise-list">
-          <label class="ex-item" id="label-t1"><input type="checkbox" id="t1" onclick="togglePersistentCheck('t1')"> <span>🏽 Press de banca inclinado[span_52](start_span)[span_52](end_span)</span></label>
-          <label class="ex-item" id="label-t2"><input type="checkbox" id="t2" onclick="togglePersistentCheck('t2')"> <span>🏽 Press plano en máquina o Fondos[span_53](start_span)[span_53](end_span)</span></label>
-          <label class="ex-item" id="label-t3"><input type="checkbox" id="t3" onclick="togglePersistentCheck('t3')"> <span>💪 Press Francés con barra Z[span_54](start_span)[span_54](end_span)</span></label>
-          <label class="ex-item" id="label-t4"><input type="checkbox" id="t4" onclick="togglePersistentCheck('t4')"> <span>💪 Extensiones de tríceps en polea alta[span_55](start_span)[span_55](end_span)</span></label>
-          <label class="ex-item" id="label-t5"><input type="checkbox" id="t5" onclick="togglePersistentCheck('t5')"> <span>🏃 20 min caminata rápida (Cardio)[span_56](start_span)[span_56](end_span)</span></label>
+          <label class="ex-item" id="label-t1"><input type="checkbox" id="t1" onclick="togglePersistentCheck('t1')"> <span>🏋️ Press de banca inclinado</span></label>
+          <label class="ex-item" id="label-t2"><input type="checkbox" id="t2" onclick="togglePersistentCheck('t2')"> <span>🏋️ Press plano en máquina o Fondos</span></label>
+          <label class="ex-item" id="label-t3"><input type="checkbox" id="t3" onclick="togglePersistentCheck('t3')"> <span>💪 Press Francés con barra Z</span></label>
+          <label class="ex-item" id="label-t4"><input type="checkbox" id="t4" onclick="togglePersistentCheck('t4')"> <span>💪 Extensiones de tríceps en polea alta</span></label>
+          <label class="ex-item" id="label-t5"><input type="checkbox" id="t5" onclick="togglePersistentCheck('t5')"> <span>🏃 20 min caminata rápida (Cardio)</span></label>
         </div>
       </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🌪️ Martes — Espalda + Bíceps[span_57](start_span)[span_57](end_span)</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🌪️ Martes — Espalda + Bíceps</span><span>▼</span></div>
       <div class="meal-body">
         <div class="exercise-list">
-          <label class="ex-item" id="label-t6"><input type="checkbox" id="t6" onclick="togglePersistentCheck('t6')"> <span>🏽 Jalón al pecho con agarre prono[span_58](start_span)[span_58](end_span)</span></label>
-          <label class="ex-item" id="label-t7"><input type="checkbox" id="t7" onclick="togglePersistentCheck('t7')"> <span>🏽 Remo con barra libre[span_59](start_span)[span_59](end_span)</span></label>
-          <label class="ex-item" id="label-t8"><input type="checkbox" id="t8" onclick="togglePersistentCheck('t8')"> <span>📐 Face pulls en polea[span_60](start_span)[span_60](end_span)</span></label>
-          <label class="ex-item" id="label-t9"><input type="checkbox" id="t9" onclick="togglePersistentCheck('t9')"> <span>💪 Curl de bíceps con barra recta o Z[span_61](start_span)[span_61](end_span)</span></label>
-          <label class="ex-item" id="label-t10"><input type="checkbox" id="t10" onclick="togglePersistentCheck('t10')"> <span>💪 Curl de bíceps alterno tipo martillo[span_62](start_span)[span_62](end_span)</span></label>
-          <label class="ex-item" id="label-t11"><input type="checkbox" id="t11" onclick="togglePersistentCheck('t11')"> <span>🏃 20 min caminata rápida[span_63](start_span)[span_63](end_span)</span></label>
+          <label class="ex-item" id="label-t6"><input type="checkbox" id="t6" onclick="togglePersistentCheck('t6')"> <span>🏋️ Jalón al pecho con agarre prono</span></label>
+          <label class="ex-item" id="label-t7"><input type="checkbox" id="t7" onclick="togglePersistentCheck('t7')"> <span>🏋️ Remo con barra libre</span></label>
+          <label class="ex-item" id="label-t8"><input type="checkbox" id="t8" onclick="togglePersistentCheck('t8')"> <span>📐 Face pulls en polea</span></label>
+          <label class="ex-item" id="label-t9"><input type="checkbox" id="t9" onclick="togglePersistentCheck('t9')"> <span>💪 Curl de bíceps con barra recta o Z</span></label>
+          <label class="ex-item" id="label-t10"><input type="checkbox" id="t10" onclick="togglePersistentCheck('t10')"> <span>💪 Curl de bíceps alterno tipo martillo</span></label>
+          <label class="ex-item" id="label-t11"><input type="checkbox" id="t11" onclick="togglePersistentCheck('t11')"> <span>🏃 20 min caminata rápida</span></label>
         </div>
       </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🍗 Miércoles — Piernas Completas[span_64](start_span)[span_64](end_span)</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🍗 Miércoles — Piernas Completas</span><span>▼</span></div>
       <div class="meal-body">
         <div class="exercise-list">
-          <label class="ex-item" id="label-t12"><input type="checkbox" id="t12" onclick="togglePersistentCheck('t12')"> <span>🏽 Sentadilla libre profunda o Prensa[span_65](start_span)[span_65](end_span)</span></label>
-          <label class="ex-item" id="label-t13"><input type="checkbox" id="t13" onclick="togglePersistentCheck('t13')"> <span>🏽 Ext. cuádriceps máquina[span_66](start_span)[span_66](end_span)</span></label>
-          <label class="ex-item" id="label-t14"><input type="checkbox" id="t14" onclick="togglePersistentCheck('t14')"> <span>🏽 Femoral acostado o Peso muerto rumano[span_67](start_span)[span_67](end_span)</span></label>
-          <label class="ex-item" id="label-t15"><input type="checkbox" id="t15" onclick="togglePersistentCheck('t15')"> <span>🦶 Elevación talones de pie[span_68](start_span)[span_68](end_span)</span></label>
-          <label class="ex-item" id="label-t16"><input type="checkbox" id="t16" onclick="togglePersistentCheck('t16')"> <span>🚴 15 min bicicleta (Cardio)[span_69](start_span)[span_69](end_span)</span></label>
+          <label class="ex-item" id="label-t12"><input type="checkbox" id="t12" onclick="togglePersistentCheck('t12')"> <span>🏋️ Sentadilla libre profunda o Prensa</span></label>
+          <label class="ex-item" id="label-t13"><input type="checkbox" id="t13" onclick="togglePersistentCheck('t13')"> <span>🏋️ Ext. cuádriceps máquina</span></label>
+          <label class="ex-item" id="label-t14"><input type="checkbox" id="t14" onclick="togglePersistentCheck('t14')"> <span>🏋️ Femoral acostado o Peso muerto rumano</span></label>
+          <label class="ex-item" id="label-t15"><input type="checkbox" id="t15" onclick="togglePersistentCheck('t15')"> <span>🦶 Elevación talones de pie</span></label>
+          <label class="ex-item" id="label-t16"><input type="checkbox" id="t16" onclick="togglePersistentCheck('t16')"> <span>🚴 15 min bicicleta (Cardio)</span></label>
         </div>
       </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🛡️ Jueves — Hombros + Trapecios[span_70](start_span)[span_70](end_span)</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🛡️ Jueves — Hombros + Trapecios</span><span>▼</span></div>
       <div class="meal-body">
         <div class="exercise-list">
-          <label class="ex-item" id="label-t17"><input type="checkbox" id="t17" onclick="togglePersistentCheck('t17')"> <span>🏽 Press militar con mancuernas[span_71](start_span)[span_71](end_span)</span></label>
-          <label class="ex-item" id="label-t18"><input type="checkbox" id="t18" onclick="togglePersistentCheck('t18')"> <span>📐 Elevaciones laterales[span_72](start_span)[span_72](end_span)</span></label>
-          <label class="ex-item" id="label-t19"><input type="checkbox" id="t19" onclick="togglePersistentCheck('t19')"> <span>🏽 Encogimientos trapecio[span_73](start_span)[span_73](end_span)</span></label>
-          <label class="ex-item" id="label-t20"><input type="checkbox" id="t20" onclick="togglePersistentCheck('t20')"> <span>🏃 20 min caminata rápida[span_74](start_span)[span_74](end_span)</span></label>
+          <label class="ex-item" id="label-t17"><input type="checkbox" id="t17" onclick="togglePersistentCheck('t17')"> <span>🏋️ Press militar con mancuernas</span></label>
+          <label class="ex-item" id="label-t18"><input type="checkbox" id="t18" onclick="togglePersistentCheck('t18')"> <span>📐 Elevaciones laterales</span></label>
+          <label class="ex-item" id="label-t19"><input type="checkbox" id="t19" onclick="togglePersistentCheck('t19')"> <span>🏋️ Encogimientos trapecio</span></label>
+          <label class="ex-item" id="label-t20"><input type="checkbox" id="t20" onclick="togglePersistentCheck('t20')"> <span>🏃 20 min caminata rápida</span></label>
         </div>
       </div>
     </div>
 
     <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal(this)"><span>🦾 Viernes — Full Body + Core[span_75](start_span)[span_75](end_span)</span><span>▼</span></div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>🦾 Viernes — Full Body + Core</span><span>▼</span></div>
       <div class="meal-body">
         <div class="exercise-list">
-          <label class="ex-item" id="label-t21"><input type="checkbox" id="t21" onclick="togglePersistentCheck('t21')"> <span>⚡ Circuito Full Body Serie 1[span_76](start_span)[span_76](end_span)</span></label>
-          <label class="ex-item" id="label-t22"><input type="checkbox" id="t22" onclick="togglePersistentCheck('t22')"> <span>⚡ Circuito Full Body Serie 2[span_77](start_span)[span_77](end_span)</span></label>
-          <label class="ex-item" id="label-t23"><input type="checkbox" id="t23" onclick="togglePersistentCheck('t23')"> <span>⚡ Circuito Full Body Serie 3[span_78](start_span)[span_78](end_span)</span></label>
-          <label class="ex-item" id="label-t24"><input type="checkbox" id="t24" onclick="togglePersistentCheck('t24')"> <span>🔥 Enfoque Abdomen / Core[span_79](start_span)[span_79](end_span)</span></label>
-          <label class="ex-item" id="label-t25"><input type="checkbox" id="t25" onclick="togglePersistentCheck('t25')"> <span>🏃 25 min cardio moderado[span_80](start_span)[span_80](end_span)</span></label>
+          <label class="ex-item" id="label-t21"><input type="checkbox" id="t21" onclick="togglePersistentCheck('t21')"> <span>⚡ Circuito Full Body Serie 1</span></label>
+          <label class="ex-item" id="label-t22"><input type="checkbox" id="t22" onclick="togglePersistentCheck('t22')"> <span>⚡ Circuito Full Body Serie 2</span></label>
+          <label class="ex-item" id="label-t23"><input type="checkbox" id="t23" onclick="togglePersistentCheck('t23')"> <span>⚡ Circuito Full Body Serie 3</span></label>
+          <label class="ex-item" id="label-t24"><input type="checkbox" id="t24" onclick="togglePersistentCheck('t24')"> <span>🔥 Enfoque Abdomen / Core</span></label>
+          <label class="ex-item" id="label-t25"><input type="checkbox" id="t25" onclick="togglePersistentCheck('t25')"> <span>🏃 25 min cardio moderado</span></label>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- NUEVA VISTA: GRÁFICAS DE BALANCE Y EFECTIVIDAD -->
+<!-- VISTA MÉTRICAS -->
 <div class="content" id="metrics">
   <div class="card">
     <div class="card-title">📊 Porcentaje de Cumplimiento Diario</div>
@@ -363,7 +363,6 @@
       <span class="metric-pct" id="pct-train" style="color:var(--gold);">0%</span>
     </div>
 
-    <!-- Contenedor de la gráfica de Chart.js -->
     <div class="chart-container">
       <canvas id="efficiencyChart"></canvas>
     </div>
@@ -373,9 +372,9 @@
 <!-- VISTA PROGRESO -->
 <div class="content" id="progress">
   <div class="card">
-    <div class="card-title">📸 Control Visual Quincenal[span_81](start_span)[span_81](end_span)</div>
+    <div class="card-title">📸 Control Visual Quincenal</div>
     <input type="file" id="file-input" accept="image/*" style="display:none;" onchange="uploadPhoto()">
-    <button class="btn-action" style="background:var(--blue); color:white;" onclick="document.getElementById('file-input').click()">Subir Foto de Control[span_82](start_span)[span_82](end_span)</button>
+    <button class="btn-action" style="background:var(--blue); color:white;" onclick="document.getElementById('file-input').click()">Subir Foto de Control</button>
     <div id="gallery" class="gallery-grid"></div>
   </div>
 </div>
@@ -433,7 +432,6 @@
     });
   }
 
-  // ALGORITMO: Medir casillas marcadas vs totales y renderizar gráfica
   function calculateEfficiency() {
     let dietChecked = 0, suppsChecked = 0, trainChecked = 0;
     
