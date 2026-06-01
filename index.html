@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,7 +35,6 @@
     overflow-x: hidden;
   }
 
-  /* HEADER */
   .app-header {
     background: linear-gradient(135deg, #0a0a0f 0%, #111128 100%);
     border-bottom: 1px solid var(--border);
@@ -46,12 +44,7 @@
     z-index: 100;
   }
 
-  .header-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 4px;
-  }
+  .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
 
   .app-title {
     font-family: 'Bebas Neue', cursive;
@@ -62,29 +55,11 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .phase-badge {
-    background: linear-gradient(135deg, var(--blue2), var(--blue));
-    color: white;
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    letter-spacing: 1px;
-  }
-
-  .header-sub {
-    color: var(--muted);
-    font-size: 11px;
-    letter-spacing: 0.5px;
-  }
-
-  /* TABS */
   .tabs {
     display: flex;
     background: var(--card);
     border-bottom: 1px solid var(--border);
     overflow-x: auto;
-    scrollbar-width: none;
     position: sticky;
     top: 77px;
     z-index: 99;
@@ -100,204 +75,66 @@
     cursor: pointer;
     border-bottom: 2px solid transparent;
     transition: all 0.2s;
-    white-space: nowrap;
-    letter-spacing: 0.5px;
   }
-  .tab.active {
-    color: var(--gold);
-    border-bottom-color: var(--gold);
-  }
+  .tab.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-  /* CONTENT */
   .content { display: none; padding: 16px; padding-bottom: 100px; }
   .content.active { display: block; }
 
-  /* CARDS */
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px;
-    margin-bottom: 12px;
-  }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
+  .card-title { font-family: 'Bebas Neue', cursive; font-size: 16px; color: var(--gold); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
 
-  .card-title {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 16px;
-    letter-spacing: 1.5px;
-    color: var(--gold);
-    margin-bottom: 10px;
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+  .stat-box { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
+  .stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; }
+  .stat-value { font-family: 'Space Mono', monospace; font-size: 18px; font-weight: 700; color: var(--gold); }
+  .stat-unit { font-size: 10px; color: var(--muted); }
+
+  /* ESTILO DEL CHECKLIST */
+  .todo-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-  }
-
-  /* STATS GRID */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-
-  .stat-box {
+    gap: 12px;
+    padding: 10px;
     background: var(--card2);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px;
-    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
   }
-
-  .stat-label {
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-
-  .stat-value {
-    font-family: 'Space Mono', monospace;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--gold);
-  }
-
-  .stat-unit {
-    font-size: 10px;
-    color: var(--muted);
-  }
-
-  /* PHASES */
-  .phase-row {
-    display: flex;
-    align-items: stretch;
-    gap: 10px;
-    margin-bottom: 8px;
-    background: var(--card2);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .phase-color { width: 4px; flex-shrink: 0; }
-
-  .phase-info { padding: 10px 10px 10px 0; flex: 1; }
-
-  .phase-name {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin-bottom: 2px;
-  }
-
-  .phase-detail { font-size: 10.5px; color: var(--muted); line-height: 1.5; }
-
-  .phase-kcal {
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 10px 12px;
-    display: flex;
-    align-items: center;
-    color: var(--text);
-    background: rgba(255,255,255,0.03);
-    flex-shrink: 0;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }
-
-  /* MEALS & TRAINING LISTS */
-  .meal-card, .train-day {
-    background: var(--card2);
-    border-radius: 10px;
-    margin-bottom: 10px;
-    border: 1px solid var(--border);
-    overflow: hidden;
-  }
-
-  .meal-header, .train-day-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px;
+  .todo-item:hover { background: rgba(240, 165, 0, 0.05); }
+  .todo-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--gold);
     cursor: pointer;
   }
+  .todo-text { font-size: 12px; flex: 1; }
+  .todo-item.done .todo-text { color: var(--muted); text-decoration: line-through; }
 
-  .meal-body, .train-body {
-    display: none;
-    padding: 12px;
-    border-top: 1px solid var(--border);
-  }
-  .meal-body.open, .train-body.open { display: block; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px; }
+  .gallery-item { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 5px; text-align: center; }
+  .gallery-item img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; }
 
-  /* BUTTONS */
-  .btn-save {
+  .btn-action {
     background: var(--gold);
-    color: #000;
+    color: black;
     border: none;
     padding: 12px;
     border-radius: 10px;
     width: 100%;
-    font-weight: 800;
-    font-family: 'Bebas Neue', cursive;
+    font-weight: bold;
+    font-family: 'Bebas Neue';
     letter-spacing: 1px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
-  /* BOTTOM NAV */
-  .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--card);
-    border-top: 1px solid var(--border);
-    display: flex;
-    padding: 10px 0 20px;
-    z-index: 200;
-  }
-
-  .nav-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
-  }
-  .nav-icon { font-size: 20px; }
-  .nav-label { font-size: 9px; color: var(--muted); text-transform: uppercase; }
-  .nav-item.active .nav-label { color: var(--gold); }
-
-  /* GALLERY GRID */
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-top: 15px;
-  }
-  .gallery-item {
-    background: var(--card2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 5px;
-    position: relative;
-  }
-  .gallery-item img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  .gallery-date {
-    font-size: 9px;
-    color: var(--muted);
-    display: block;
-    text-align: center;
-    margin-top: 4px;
-  }
+  .meal-card { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
+  .meal-header { padding: 12px; cursor: pointer; display: flex; justify-content: space-between; }
+  .meal-body { display: none; padding: 12px; border-top: 1px solid var(--border); font-size: 12px; }
+  .meal-body.open { display: block; }
 </style>
 </head>
 <body>
@@ -305,20 +142,19 @@
 <div class="app-header">
   <div class="header-top">
     <div class="app-title">CLASSIC PHYSIQUE</div>
-    <div class="phase-badge">FASE 1 · NUBE ACTIVA</div>
+    <div class="phase-badge">PROGRESO NUBE</div>
   </div>
-  <div class="header-sub">Cristian Alexander De Orta · Lenovo LOQ Edition</div>
+  <div class="header-sub">Alex Orta — Lenovo LOQ Edition</div>
 </div>
 
 <div class="tabs">
   <div class="tab active" onclick="showTab('home', this)">Inicio</div>
   <div class="tab" onclick="showTab('diet', this)">Dieta</div>
   <div class="tab" onclick="showTab('training', this)">Entreno</div>
-  <div class="tab" onclick="showTab('progress', this)">Progreso 📸</div>
-  <div class="tab" onclick="showTab('supplements', this)">Suplementos</div>
-  <div class="tab" onclick="showTab('peak', this)">Peak Week</div>
+  <div class="tab" onclick="showTab('progress', this)">Fotos 📸</div>
 </div>
 
+<!-- VISTA INICIO -->
 <div class="content active" id="home">
   <div class="stats-grid">
     <div class="stat-box" onclick="editStat('peso')">
@@ -330,222 +166,213 @@
       <div class="stat-value"><span id="grasa-actual">28</span><span class="stat-unit"> %</span></div>
     </div>
   </div>
-  
-  <div id="ultimo-registro" style="text-align:center; font-size:10.5px; color:var(--muted); margin-bottom: 15px; font-family:'Space Mono';">Sincronizando con Firebase...</div>
+  <button class="btn-action" onclick="syncFirebase()">Sincronizar Peso y Grasa ☁️</button>
+  <div id="status" style="text-align:center; font-size:10px; color:var(--muted); margin-bottom:15px;">Esperando acción...</div>
 
-  <button class="btn-save" onclick="sincronizarFirebase()">Sincronizar Datos en la Nube ☁️</button>
-
-  <div class="card" style="margin-top:20px;">
-    <div class="card-title"><span>🗓</span> Hoja de Ruta 2026</div>
-    <div class="phase-row">
-      <div class="phase-color" style="background:var(--blue);"></div>
-      <div class="phase-info">
-        <div class="phase-name" style="color:var(--blue);">FASE 1 — Base</div>
-        <div class="phase-detail">Jun — Sep 2026 · 16 semanas</div>
+  <!-- CONTROL DIARIO (CHECKLIST) -->
+  <div class="card">
+    <div class="card-title">✅ Checklist de Preparación Diaria</div>
+    <div id="checklist-container">
+      <div class="todo-item" onclick="toggleCheck('c1')">
+        <input type="checkbox" id="c1" onclick="event.stopPropagation()">
+        <span class="todo-text">🏃 Cardio en Ayunas (4:00 AM)</span>
       </div>
-      <div class="phase-kcal">2,400<span>kcal</span></div>
-    </div>
-    <div class="phase-row">
-      <div class="phase-color" style="background:var(--orange);"></div>
-      <div class="phase-info">
-        <div class="phase-name" style="color:var(--orange);">FASE 2 — Avanzada</div>
-        <div class="phase-detail">Oct — Nov 2026 · 8 semanas</div>
+      <div class="todo-item" onclick="toggleCheck('c2')">
+        <input type="checkbox" id="c2" onclick="event.stopPropagation()">
+        <span class="todo-text">💊 Suplementos Mañana (Lipo6, D3, CoQ10, Vit C, Omega3)</span>
       </div>
-      <div class="phase-kcal">2,000<span>kcal</span></div>
+      <div class="todo-item" onclick="toggleCheck('c3')">
+        <input type="checkbox" id="c3" onclick="event.stopPropagation()">
+        <span class="todo-text">🍳 Comida 1: Desayuno (10:00 AM)</span>
+      </div>
+      <div class="todo-item" onclick="toggleCheck('c4')">
+        <input type="checkbox" id="c4" onclick="event.stopPropagation()">
+        <span class="todo-text">💊 Suplemento Tarde (Lipo6 Black - 4:00 PM)</span>
+      </div>
+      <div class="todo-item" onclick="toggleCheck('c5')">
+        <input type="checkbox" id="c5" onclick="event.stopPropagation()">
+        <span class="todo-text">🍗 Comida 2: Pre-Gym (4:00 PM)</span>
+      </div>
+      <div class="todo-item" onclick="toggleCheck('c6')">
+        <input type="checkbox" id="c6" onclick="event.stopPropagation()">
+        <span class="todo-text">💪 Creatina 5g + Entrenamiento (7:00 PM)</span>
+      </div>
+      <div class="todo-item" onclick="toggleCheck('c7')">
+        <input type="checkbox" id="c7" onclick="event.stopPropagation()">
+        <span class="todo-text">🥛 Batido ISO-100 + Cena Post-Entreno</span>
+      </div>
+      <div class="todo-item" onclick="toggleCheck('c8')">
+        <input type="checkbox" id="c8" onclick="event.stopPropagation()">
+        <span class="todo-text">🌙 Suplementos Noche (ZMA, Ashwagandha, L-Theanine)</span>
+      </div>
     </div>
+    <button class="btn-action" style="background:var(--border); color:var(--gold); margin-top:10px; font-size:11px; padding:6px;" onclick="resetChecklist()">🔄 Reiniciar Checklist Diario</button>
   </div>
 </div>
 
+<!-- VISTA DIETA -->
 <div class="content" id="diet">
   <div class="card">
-    <div class="card-title">🥗 Dieta Fase 1</div>
+    <div class="card-title">🍎 Plan Nutricional</div>
     <div class="meal-card">
-        <div class="meal-header" onclick="toggleMeal(this)"><span>Comida 1 - 10:00 AM</span><span>▼</span></div>
-        <div class="meal-body">3 huevos + 4 claras + 70g avena + 1 plátano.</div>
-    </div>
-    <div class="meal-card">
-        <div class="meal-header" onclick="toggleMeal(this)"><span>Comida 2 - 4:00 PM</span><span>▼</span></div>
-        <div class="meal-body">250g pollo + 300g papa + Verduras.</div>
+      <div class="meal-header" onclick="toggleMeal(this)"><span>10:00 AM - Desayuno</span><span>▼</span></div>
+      <div class="meal-body">3 huevos enteros, 4 claras, 70g avena, 1 plátano.</div>
     </div>
   </div>
 </div>
 
+<!-- VISTA ENTRENAMIENTO -->
 <div class="content" id="training">
   <div class="card">
-    <div class="card-title">💪 Entrenamiento Hipertrofia</div>
-    <div class="train-day">
-        <div class="train-day-header" onclick="toggleMeal(this)"><span>Lunes: Pecho/Tríceps</span><span>▼</span></div>
-        <div class="meal-body">4x12 Press Banca, 4x12 Aperturas, 3x15 Press Francés.</div>
+    <div class="card-title">💪 Rutina Diaria</div>
+    <div class="meal-card">
+      <div class="meal-header" onclick="toggleMeal(this)"><span>Lunes - Empuje</span><span>▼</span></div>
+      <div class="meal-body">Pecho, Hombro, Tríceps. 4x12 reps cada uno.</div>
     </div>
   </div>
 </div>
 
+<!-- VISTA FOTOS DE PROGRESO -->
 <div class="content" id="progress">
   <div class="card">
-    <div class="card-title">📸 Galería de Evolución</div>
-    <p style="font-size:11px; color:var(--muted); margin-bottom:15px;">Las fotos se guardan en tu bitácora de Firebase.</p>
-    
-    <input type="file" id="photo-input" accept="image/*" style="display:none;" onchange="subirFoto()">
-    <button class="btn-save" style="background:var(--blue); color:white;" onclick="document.getElementById('photo-input').click()">
-      Añadir Foto de Progreso
-    </button>
-
-    <div id="gallery-grid" class="gallery-grid">
-      </div>
+    <div class="card-title">📸 Galería de Progreso</div>
+    <input type="file" id="file-input" accept="image/*" style="display:none;" onchange="uploadPhoto()">
+    <button class="btn-action" style="background:var(--blue); color:white;" onclick="document.getElementById('file-input').click()">Subir Foto de Hoy</button>
+    <div id="gallery" class="gallery-grid"></div>
   </div>
 </div>
 
-<div class="content" id="supplements">
-  <div class="card">
-    <div class="card-title">💊 Stack Suplementación</div>
-    <div style="font-size:12px; line-height:1.8;">
-        • Lipo 6 Black (Mañana/Tarde)<br>
-        • Creatina 5g (Pre-Gym)<br>
-        • ISO-100 Dymatize (Post-Gym)<br>
-        • Ashwagandha + ZMA (Noche)
+<!-- MODAL EDITAR INDIVIDUAL -->
+<div id="modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:1000; align-items:center; justify-content:center;">
+  <div style="background:var(--card); padding:20px; border-radius:15px; width:280px; text-align:center;">
+    <h3 id="modal-title" style="color:var(--gold); margin-bottom:15px;">ACTUALIZAR</h3>
+    <input id="modal-input" type="number" step="0.1" style="width:100%; padding:10px; background:var(--card2); color:white; border:1px solid var(--border); border-radius:8px; font-size:20px; text-align:center;">
+    <div style="display:flex; gap:10px; margin-top:20px;">
+      <button onclick="closeModal()" style="flex:1; padding:10px; border-radius:8px; border:none; background:var(--card2); color:white;">X</button>
+      <button onclick="saveStat()" style="flex:2; padding:10px; border-radius:8px; border:none; background:var(--gold); font-weight:bold;">GUARDAR</button>
     </div>
   </div>
 </div>
 
-<div class="content" id="peak">
-    <div class="card">
-      <div class="card-title">🏆 Protocolo Final</div>
-      <p style="font-size:12px;">Descarga de Carbos D-7 a D-5. Carga fuerte D-4 a D-2. Mínima agua el día del evento.</p>
-    </div>
-</div>
-
-<div id="modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:999; align-items:center; justify-content:center;">
-    <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px; width:300px;">
-      <div id="modal-title" style="font-family:'Bebas Neue'; font-size:20px; color:var(--gold); margin-bottom:15px;">ACTUALIZAR</div>
-      <input id="modal-input" type="number" step="0.1" style="width:100%; background:var(--card2); border:1px solid var(--border); padding:15px; color:white; font-size:24px; text-align:center; border-radius:10px;">
-      <div style="display:flex; gap:10px; margin-top:15px;">
-        <button onclick="cerrarModal()" style="flex:1; padding:10px; border:none; border-radius:8px; background:var(--card2); color:white;">X</button>
-        <button onclick="guardarStat()" style="flex:2; padding:10px; border:none; border-radius:8px; background:var(--gold); color:black; font-weight:bold;">GUARDAR</button>
-      </div>
-    </div>
-</div>
-
-<div class="bottom-nav">
-  <div class="nav-item active" onclick="showTab('home',this)">
-    <div class="nav-icon">🏠</div><div class="nav-label">Home</div>
-  </div>
-  <div class="nav-item" onclick="showTab('diet',this)">
-    <div class="nav-icon">🥗</div><div class="nav-label">Dieta</div>
-  </div>
-  <div class="nav-item" onclick="showTab('training',this)">
-    <div class="nav-icon">💪</div><div class="nav-label">Gym</div>
-  </div>
-  <div class="nav-item" onclick="showTab('progress',this)">
-    <div class="nav-icon">📸</div><div class="nav-label">Fotos</div>
-  </div>
-  <div class="nav-item" onclick="showTab('peak',this)">
-    <div class="nav-icon">🏆</div><div class="nav-label">Peak</div>
-  </div>
-</div>
-
+<!-- SCRIPT DE FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
 <script>
-  // CONFIGURACIÓN FIREBASE (Cristian, reemplaza con tus llaves)
+  // ⚠️ COLOCA AQUÍ TUS CREDENCIALES CUANDO LE DES A "+ AGREGAR APP" EN FIREBASE
   const firebaseConfig = {
     apiKey: "TU_API_KEY",
-    authDomain: "tu-app.firebaseapp.com",
-    projectId: "tu-app-id",
-    storageBucket: "tu-app.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:12345:web:abcde"
+    authDomain: "tu-proyecto.firebaseapp.com",
+    projectId: "tu-proyecto-id",
+    storageBucket: "tu-proyecto.appspot.com",
+    messagingSenderId: "tu-sender-id",
+    appId: "tu-app-id"
   };
 
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
 
-  // NAVEGACIÓN
   function showTab(id, el) {
     document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-    document.querySelectorAll('.tab, .nav-item').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    if(el) el.classList.add('active');
+    el.classList.add('active');
   }
 
-  function toggleMeal(header) {
-    header.nextElementSibling.classList.toggle('open');
+  function toggleMeal(header) { header.nextElementSibling.classList.toggle('open'); }
+
+  let editing = null;
+  function editStat(type) {
+    editing = type;
+    document.getElementById('modal-overlay').style.display = 'flex';
+    document.getElementById('modal-input').value = document.getElementById(type + '-actual').innerText;
+  }
+  function closeModal() { document.getElementById('modal-overlay').style.display = 'none'; }
+  function saveStat() {
+    document.getElementById(editing + '-actual').innerText = document.getElementById('modal-input').value;
+    closeModal();
   }
 
-  // EDICIÓN DE DATOS
-  let statEditando = null;
-  function editStat(tipo) {
-    statEditando = tipo;
-    const modal = document.getElementById('modal-overlay');
-    const input = document.getElementById('modal-input');
-    document.getElementById('modal-title').textContent = tipo === 'peso' ? 'NUEVO PESO (KG)' : 'GRASA (%)';
-    input.value = document.getElementById(tipo + '-actual').textContent;
-    modal.style.display = 'flex';
-    input.focus();
-  }
-
-  function cerrarModal() { document.getElementById('modal-overlay').style.display = 'none'; }
-
-  function guardarStat() {
-    const val = document.getElementById('modal-input').value;
-    document.getElementById(statEditando + '-actual').textContent = val;
-    localStorage.setItem('cp_' + statEditando, val);
-    cerrarModal();
-  }
-
-  // FIREBASE: GUARDAR MÉTRICAS
-  function sincronizarFirebase() {
-    const p = document.getElementById('peso-actual').textContent;
-    const g = document.getElementById('grasa-actual').textContent;
-    const fecha = new Date().toLocaleString();
-
-    db.collection("usuarios").doc("cristian").set({
-      peso: p,
-      grasa: g,
-      ultimaVez: fecha
+  function syncFirebase() {
+    const p = document.getElementById('peso-actual').innerText;
+    const g = document.getElementById('grasa-actual').innerText;
+    db.collection("seguimiento").doc("cristian").update({
+      peso: p, grasa: g, fecha: new Date().toLocaleString()
+    }).catch(() => {
+      db.collection("seguimiento").doc("cristian").set({
+        peso: p, grasa: g, fecha: new Date().toLocaleString()
+      });
     }).then(() => {
-      alert("¡Datos guardados en la nube!");
-      document.getElementById('ultimo-registro').textContent = "📅 Sincronizado: " + fecha;
+      document.getElementById('status').innerText = "✅ Datos en la nube";
     });
   }
 
-  // FIREBASE: SUBIR FOTO
-  function subirFoto() {
-    const file = document.getElementById('photo-input').files[0];
+  function toggleCheck(id) {
+    const checkbox = document.getElementById(id);
+    checkbox.checked = !checkbox.checked;
+    
+    if(checkbox.checked) {
+      checkbox.parentElement.classList.add('done');
+    } else {
+      checkbox.parentElement.classList.remove('done');
+    }
+
+    db.collection("checklist").doc("diario").update({
+      [id]: checkbox.checked
+    }).catch(() => {
+      db.collection("checklist").doc("diario").set({ [id]: checkbox.checked });
+    });
+  }
+
+  function resetChecklist() {
+    if(confirm("¿Quieres reiniciar el control del día de hoy?")) {
+      const resetData = { c1:false, c2:false, c3:false, c4:false, c5:false, c6:false, c7:false, c8:false };
+      db.collection("checklist").doc("diario").set(resetData).then(() => {
+        alert("¡Lista limpia! A darle duro al día. 💪");
+      });
+    }
+  }
+
+  function uploadPhoto() {
+    const file = document.getElementById('file-input').files[0];
     const reader = new FileReader();
-    reader.onloadend = function() {
-      const base64 = reader.result;
-      db.collection("fotos_progreso").add({
-        url: base64,
-        fecha: new Date().toLocaleDateString()
-      }).then(() => alert("Foto guardada!"));
+    reader.onloadend = () => {
+      db.collection("fotos").add({ url: reader.result, fecha: new Date().toLocaleDateString() });
     };
     reader.readAsDataURL(file);
   }
 
-  // ESCUCHAR CAMBIOS EN TIEMPO REAL
   window.onload = () => {
-    // Cargar métricas
-    db.collection("usuarios").doc("cristian").onSnapshot(doc => {
-        if(doc.exists) {
-            document.getElementById('peso-actual').textContent = doc.data().peso;
-            document.getElementById('grasa-actual').textContent = doc.data().grasa;
-            document.getElementById('ultimo-registro').textContent = "📅 Sincronizado: " + doc.data().ultimaVez;
-        }
+    db.collection("seguimiento").doc("cristian").onSnapshot(doc => {
+      if(doc.exists) {
+        document.getElementById('peso-actual').innerText = doc.data().peso;
+        document.getElementById('grasa-actual').innerText = doc.data().grasa;
+      }
     });
 
-    // Cargar Galería
-    db.collection("fotos_progreso").orderBy("fecha", "desc").onSnapshot(snap => {
-        const grid = document.getElementById('gallery-grid');
-        grid.innerHTML = "";
-        snap.forEach(doc => {
-            const data = doc.data();
-            grid.innerHTML += `
-                <div class="gallery-item">
-                    <img src="${data.url}">
-                    <span class="gallery-date">${data.fecha}</span>
-                </div>`;
+    db.collection("checklist").doc("diario").onSnapshot(doc => {
+      if(doc.exists) {
+        const datos = doc.data();
+        Object.keys(datos).forEach(id => {
+          const cb = document.getElementById(id);
+          if(cb) {
+            cb.checked = datos[id];
+            if(datos[id]) {
+              cb.parentElement.classList.add('done');
+            } else {
+              cb.parentElement.classList.remove('done');
+            }
+          }
         });
+      }
+    });
+
+    db.collection("fotos").orderBy("fecha", "desc").onSnapshot(snap => {
+      const gallery = document.getElementById('gallery');
+      gallery.innerHTML = "";
+      snap.forEach(doc => {
+        gallery.innerHTML += `<div class="gallery-item"><img src="${doc.data().url}"><div style="font-size:9px;">${doc.data().fecha}</div></div>`;
+      });
     });
   };
 </script>
